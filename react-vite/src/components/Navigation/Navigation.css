@@ -1,3 +1,49 @@
 .profile-dropdown {
   position: absolute;
+  right: 50px;
+  color: white;
+  list-style: none;
+  background-color: black;
+  width: 200px;
+  padding: 0;
+}
+
+.home-logo-link {
+  text-decoration: none;
+}
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 150px;
+  background-color: #41270b;
+}
+
+.logo-and-name {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 100px;
+}
+
+.logo {
+  height: 100px;
+  width: 100px;
+  border-radius: 50px;
+}
+
+.name {
+  color: white;
+}
+
+.profile-button-container {
+  margin: 100px;
+}
+
+.profile-button {
+  font-size: 50px;
+  color: white;
+  background-color: #41270b;
+  border: none;
 }

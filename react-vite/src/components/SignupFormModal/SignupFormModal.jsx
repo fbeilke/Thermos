@@ -32,7 +32,7 @@ function SignupFormModal() {
       formData.append("email", email);
       formData.append("blog_name", blogName);
       formData.append("password", password);
-      formData.append("profile_image_url", image)
+      formData.append("profile_picture_url", image)
 
       setImageLoading(true);
 
