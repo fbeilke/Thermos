@@ -5,11 +5,15 @@
   list-style: none;
   background-color: black;
   width: 200px;
-  padding: 0;
+  padding: 10px 10px;
 }
 
 .home-logo-link {
   text-decoration: none;
+}
+
+.home-logo-link:hover {
+  background-color: #41270b;
 }
 
 .top-bar {
@@ -24,21 +28,25 @@
   display: flex;
   align-items: center;
   gap: 10px;
-  margin: 100px;
+  margin: 0px 50px;
 }
 
 .logo {
-  height: 100px;
-  width: 100px;
-  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
 }
 
 .name {
   color: white;
 }
 
+.name:hover {
+  color: #caba9c;
+}
+
 .profile-button-container {
-  margin: 100px;
+  margin: 50px;
 }
 
 .profile-button {
@@ -46,4 +54,5 @@
   color: white;
   background-color: #41270b;
   border: none;
+  width: 50px;
 }

@@ -1,0 +1,94 @@
+.signup-form-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 600px;
+}
+
+.signup-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 700px;
+}
+
+.signup-containers {
+    position: relative;
+    margin: 10px;
+}
+
+.floating-placeholders {
+    position: absolute;
+    pointer-events: none;
+    top: 3px;
+    left: 3px;
+}
+
+.signup-inputs {
+    width: 300px;
+}
+
+.signup-inputs:focus+.floating-placeholders {
+    top: -15.5px;
+}
+
+.signup-button {
+    width: 200px;
+    margin-top: 60px;
+}
+
+.signup-errors-container {
+    min-height: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.image-loading-message-container {
+    min-height: 25px;
+    padding: 0;
+    margin: 0;
+}
+
+.add-image-signup-container {
+    position: relative;
+    left: -50px;
+}
+
+.add-image-signup-label {
+    position: absolute;
+    top: -10px;
+    left: -50px;
+    border: 1px solid black;
+    background-color: #8a6240;
+    height: 40px;
+    border-radius: 20px;
+    width: 200px;
+    text-align: center;
+    color: white;
+}
+
+.add-image-signup-label:hover {
+    cursor: pointer;
+}
+
+.add-image-signup-input {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    z-index: -1;
+}
+
+.hacky-gap {
+    height: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+.image-signup-errors-container {
+    height: 25px;
+    position: absolute;
+    width: 300px;
+    top: 35px;
+    left: -35px;
+}

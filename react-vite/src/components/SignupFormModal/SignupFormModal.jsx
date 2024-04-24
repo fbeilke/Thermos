@@ -18,15 +18,19 @@ function SignupFormModal() {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!image) setErrors({image: "A profile picture is required"})
-    if (password !== confirmPassword) {
-      return setErrors({
-        confirmPassword:
-          "Confirm Password field must be the same as the Password field",
-      });
-    }
+    const validators = {}
+    if (!email.length) validators.email = "Email is required"
+    if (!email.includes('@')) validators.email = "Must be a valid email"
+    if (!blogName.length) validators.blogName = "Blog name is required"
+    if (blogName.length > 100) validators.blogName = "Blog name can be maximum of 100 characters long"
+    if (!password.length) validators.password = "Password is required"
+    if (!confirmPassword.length) validators.confirmPassword = "Password confirmation is required"
+    if (password !== confirmPassword) validators.confirmPassword = "Confirm Password field must be the same as the Password field"
+    if (!image) validators.image = "A profile picture is required"
 
-    if (Object.keys(errors).length === 0) {
+
+
+    if (Object.keys(validators).length === 0) {
       const formData = new FormData();
 
       formData.append("email", email);
@@ -43,68 +47,94 @@ function SignupFormModal() {
       } else {
         closeModal();
       }
+    } else {
+      setErrors(validators);
     }
 
   };
 
   return (
-    <>
-      <h1>Sign Up</h1>
-      {errors.server && <p>{errors.server}</p>}
-      <form onSubmit={handleSubmit} encType="multipart/form-data">
-        <label>
-          Email
+    <div className='signup-form-container'>
+      <h1 className='signup-label'>Sign Up</h1>
+      {errors.server && <p className='errors'>{errors.server}</p>}
+      <form onSubmit={handleSubmit} encType="multipart/form-data" className='signup-form'>
+        <div className='signup-containers'>
           <input
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
+            className='signup-inputs'
           />
-        </label>
-        {errors.email && <p>{errors.email}</p>}
-        <label>
-          Blog name
+          <div className="floating-placeholders" style={ email ? { top: "-10.5px" } : null }>
+            <label>Email</label>
+          </div>
+          <div className='signup-errors-container'>
+            {errors.email && <p className='errors'>{errors.email}</p>}
+          </div>
+        </div>
+        <div className='signup-containers'>
           <input
             type="text"
             value={blogName}
             onChange={(e) => setBlogName(e.target.value)}
-            required
+            className='signup-inputs'
           />
-        </label>
-        {errors.username && <p>{errors.username}</p>}
-        <label>
-          Password
+          <div className="floating-placeholders" style={ blogName ? { top: "-10.5px" } : null }>
+            <label>Blog Name</label>
+          </div>
+          <div className='signup-errors-container'>
+            {errors.blogName && <p className='errors'>{errors.blogName}</p>}
+          </div>
+        </div>
+        <div className='signup-containers'>
           <input
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
+            className='signup-inputs'
           />
-        </label>
-        {errors.password && <p>{errors.password}</p>}
-        <label>
-          Confirm Password
+          <div className="floating-placeholders" style={ password ? { top: "-10.5px" } : null }>
+            <label>Password</label>
+          </div>
+          <div className='signup-errors-container'>
+            {errors.password && <p className='errors'>{errors.password}</p>}
+          </div>
+        </div>
+        <div className='signup-containers'>
           <input
             type="password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            required
+            className='signup-inputs'
           />
-        </label>
-        {errors.confirmPassword && <p>{errors.confirmPassword}</p>}
-        <label>
-          Add a profile image
-          <input
-            type="file"
-            accept="image/*"
-            onChange={(e) => setImage(e.target.files[0])}
-          />
-        </label>
-        {errors.image && <p>{errors.image}</p>}
-        {imageLoading && <p>Loading...</p>}
-        <button type="submit">Sign Up</button>
+          <div className="floating-placeholders" style={ confirmPassword ? { top: "-10.5px" } : null }>
+            <label>Confirm Password</label>
+          </div>
+          <div className='signup-errors-container'>
+            {errors.confirmPassword && <p className='errors'>{errors.confirmPassword}</p>}
+          </div>
+        </div>
+        <div className='add-image-signup-container'>
+          <label className='add-image-signup-label'>
+            <p className='hacky-gap'/>
+            Add an image
+            <input
+              type="file"
+              accept="image/*"
+              onChange={(e) => setImage(e.target.files[0])}
+              className='add-image-signup-input'
+            />
+          </label>
+          <div className='image-signup-errors-container'>
+            {errors.image && <p className='errors'>{errors.image}</p>}
+          </div>
+        </div>
+        <button className='signup-button' type="submit">Sign Up</button>
+        <div className='image-loading-message-container'>
+          {imageLoading && <p>Loading...</p>}
+        </div>
       </form>
-    </>
+    </div>
   );
 }
 

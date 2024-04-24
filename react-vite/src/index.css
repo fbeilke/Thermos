@@ -1,1 +1,72 @@
-/* TODO: Add sitewide styles */
+
+
+html {
+    background-color: #41270b
+}
+
+.errors {
+    color: red;
+    margin: 0;
+}
+
+#modal-content {
+    height: 600px;
+    width: 700px;
+    background-color: #caba9c;
+    border-radius: 25px;
+    z-index: 1;
+}
+
+button {
+    background-color: #8a6240;
+    height: 40px;
+    border-radius: 20px;
+    width: 200px;
+    color: white;
+    border: 1px solid black;
+}
+
+button:hover,
+a:hover {
+    cursor: pointer;
+    background-color: #4d2d18
+}
+
+.main-page {
+    display: flex;
+    justify-content: space-between;
+}
+
+.page-content {
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+@media screen and (max-width: 800px) {
+    .main-page {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
+    .page-content,
+    .user-page-container {
+        max-width: 90%;
+        margin: 0 auto;
+    }
+
+    .sidebar-container {
+        width: 90%;
+        height: 100px;
+        position: sticky;
+        top: 0px;
+        left: 0px;
+        margin: auto;
+    }
+
+    .sidebar-links {
+        display: flex;
+
+    }
+
+
+}
