@@ -1,4 +1,4 @@
-"""create_users_table
+"""create_all_tables
 
 Revision ID: ffdc0a98111c
 Revises:
