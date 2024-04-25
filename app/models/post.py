@@ -31,5 +31,5 @@ class Post(db.Model):
             'tags': self.tags,
             'postType': self.post_type,
             'createdAt': self.created_at,
-            'creator': self.creator_user
+            'creator': self.creator_user.id
         }

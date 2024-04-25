@@ -23,7 +23,7 @@
 }
 
 .login-inputs:focus+.floating-placeholders {
-    top: -15.5px;
+    top: -18px;
 }
 
 .login-button {

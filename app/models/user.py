@@ -38,3 +38,14 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profilePictureUrl': self.profile_picture_url
         }
+
+    def to_dict_plus(self):
+        posts_by_user = [post.to_dict() for post in self.posts]
+
+        return {
+            'id': self.id,
+            'blogName': self.blog_name,
+            'email': self.email,
+            'profilePictureUrl': self.profile_picture_url,
+            'postsByUser': posts_by_user
+        }

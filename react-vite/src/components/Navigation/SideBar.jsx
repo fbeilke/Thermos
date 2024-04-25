@@ -28,7 +28,7 @@ export default function SideBar() {
                     </div>
                 }
                 {user && !user.message && accountIsOpen && blogIsOpen ?
-                    <div className='sidebar-links-container-2'>
+                    <div className='sidebar-links-container-3'>
                         <Link to={`/blogs/${user.blogName}`} className='sidebar-links'>View {user.blogName}</Link>
                         <Link to='/followers' className='sidebar-links'>Followers</Link>
                     </div>

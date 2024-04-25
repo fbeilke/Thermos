@@ -61,6 +61,18 @@ a:hover {
         top: 0px;
         left: 0px;
         margin: auto;
+        display: flex;
+        align-items: center;
+    }
+
+    .sidebar-links-container {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .sidebar-links-container-2 {
+        display: flex;
+        flex-direction: row;
     }
 
     .sidebar-links {

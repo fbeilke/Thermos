@@ -55,7 +55,7 @@ function LoginFormModal() {
             onChange={(e) => setEmail(e.target.value)}
             className='login-inputs'
           />
-          <div className="floating-placeholders" style={ email ? { top: "-10.5px" } : null }>
+          <div className="floating-placeholders" style={ email ? { top: "-18px" } : null }>
             <label>Email</label>
           </div>
           <div className='login-errors-container'>

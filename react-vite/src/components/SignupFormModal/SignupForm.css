@@ -30,7 +30,7 @@
 }
 
 .signup-inputs:focus+.floating-placeholders {
-    top: -15.5px;
+    top: -18px;
 }
 
 .signup-button {
@@ -70,6 +70,7 @@
 
 .add-image-signup-label:hover {
     cursor: pointer;
+    background-color: #4d2d18
 }
 
 .add-image-signup-input {

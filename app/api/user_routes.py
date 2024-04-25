@@ -8,7 +8,7 @@ user_routes = Blueprint('users', __name__)
 @user_routes.route('/')
 def users():
     """
-    Query for all users and returns them in a list of user dictionaries
+    Query for all users and returns them in a dictionary of user dictionaries
     """
     users = User.query.all()
     return {user.id: user.to_dict() for user in users}
@@ -22,6 +22,6 @@ def user(blog_name):
 
     user = User.query.filter(User.blog_name == blog_name).first()
     if user:
-        return user.to_dict()
+        return user.to_dict_plus()
     else:
         return {"error": "User was not found"}, 404

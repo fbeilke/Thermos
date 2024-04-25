@@ -44,6 +44,7 @@ function SignupFormModal() {
 
       if (serverResponse) {
         setErrors(serverResponse);
+        setImageLoading(false);
       } else {
         closeModal();
       }
@@ -65,7 +66,7 @@ function SignupFormModal() {
             onChange={(e) => setEmail(e.target.value)}
             className='signup-inputs'
           />
-          <div className="floating-placeholders" style={ email ? { top: "-10.5px" } : null }>
+          <div className="floating-placeholders" style={ email ? { top: "-18px" } : null }>
             <label>Email</label>
           </div>
           <div className='signup-errors-container'>
