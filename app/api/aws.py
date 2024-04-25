@@ -9,7 +9,7 @@ s3 = boto3.client(
     aws_secret_access_key = os.environ.get("S3_SECRET_KEY")
 )
 
-ALLOWED_EXTENSIONS = {'pdf', 'gif', 'png', 'jpg', 'jpeg', 'webp', 'avif'}
+ALLOWED_EXTENSIONS = {'pdf', 'gif', 'png', 'jpg', 'jpeg', 'webp', 'avif', 'mp4', 'mov', 'mp3'}
 
 def unique_filename(filename):
     """
