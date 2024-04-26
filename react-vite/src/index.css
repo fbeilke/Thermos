@@ -42,6 +42,10 @@ a:hover {
     margin: 0 auto;
 }
 
+.explore-page-label {
+    color: white;
+}
+
 @media screen and (max-width: 800px) {
     .main-page {
         display: flex;

@@ -20,7 +20,7 @@ function SignupFormModal() {
 
     const validators = {}
     if (!email.length) validators.email = "Email is required"
-    if (!email.includes('@')) validators.email = "Must be a valid email"
+    if (email && !email.includes('@')) validators.email = "Must be a valid email"
     if (!blogName.length) validators.blogName = "Blog name is required"
     if (blogName.length > 100) validators.blogName = "Blog name can be maximum of 100 characters long"
     if (!password.length) validators.password = "Password is required"

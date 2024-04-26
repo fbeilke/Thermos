@@ -9,10 +9,11 @@ export default function UserPage() {
     const dispatch = useDispatch()
     const { blogName } = useParams();
     const { singleUser } = useSelector(state => state.users)
+    const { posts } = useSelector(state => state.posts)
 
     useEffect(() => {
         dispatch(getSingleUserThunk(blogName))
-    }, [dispatch, blogName])
+    }, [dispatch, blogName, posts])
 
     if (!singleUser) return null;
 
@@ -26,7 +27,7 @@ export default function UserPage() {
             </div>
             <div className='user-page-feed'>
                 {/* sends an array of posts through props */}
-                <PostsFeed posts={singleUser.postsByUser}/>
+                <PostsFeed posts={singleUser.postsByUser} blogName={blogName}/>
             </div>
         </div>
     )

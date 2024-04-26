@@ -1,0 +1,41 @@
+.create-text-post-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-text-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-text-input-containers {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-text-inputs {
+    width: 500px;
+}
+
+.floating-placeholders {
+    position: absolute;
+    pointer-events: none;
+    top: 3px;
+    left: 3px;
+}
+
+.create-text-inputs:focus+.floating-placeholders {
+    top: -18px;
+}
+
+.create-text-input-textarea {
+    width: 500px;
+    height: 300px;
+}
+
+.create-text-error-container {
+    min-height: 25px;
+}

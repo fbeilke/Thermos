@@ -1,10 +1,15 @@
 .posts-feed-container {
     margin-top: 100px;
 }
+
+.each-post {
+    display: flex;
+}
+
 .each-post-container {
     background-color: #caba9c;
     border-radius: 25px;
-    max-width: 500px;
+    width: 500px;
     padding: 50px;
     margin: 30px 0px;
 }
@@ -16,4 +21,38 @@
 
 .video-post-content {
     width: 500px;
+}
+
+.post-profile-picture-container {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.post-profile-picture {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.post-creator {
+    color: #4c6444;
+    font-size: 15px;
+    border-bottom: 1px solid #8a6240;
+}
+
+.interact-post-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-delete-button {
+    height: 30px;
+    width: 30px;
+    font-size: 20px;
+    padding-left: 4px;
+    padding-top: 3px;
 }

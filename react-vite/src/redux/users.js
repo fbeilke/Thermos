@@ -7,6 +7,8 @@ function getSingleUser(user) {
     }
 }
 
+
+
 export const getSingleUserThunk = (blogName) => async (dispatch) => {
     const response = await fetch(`/api/users/${blogName}`)
 

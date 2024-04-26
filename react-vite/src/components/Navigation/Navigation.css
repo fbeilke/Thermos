@@ -57,3 +57,46 @@
   border: none;
   width: 50px;
 }
+
+.create-post-buttons-container {
+  display: flex;
+}
+
+.create-post-buttons {
+  background-color: #4c6444;
+  height: 75px;
+  width: 75px;
+  border-radius: 25%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5px;
+}
+
+.create-post-icons {
+  font-size: 40px;
+  color: white;
+  margin: 0px;
+}
+
+.create-post-buttons-text {
+  color: white;
+  font-size: 15px;
+  margin: 0;
+}
+
+.create-post-buttons:hover {
+  cursor: pointer;
+  background-color: #102820;
+}
+
+.create-post-label {
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 20px;
+}

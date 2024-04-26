@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { useSelector } from 'react-redux';
+import { useModal } from '../../context/Modal';
+import LoginFormModal from '../LoginFormModal';
 import './SideBar.css'
 
 
@@ -9,6 +11,7 @@ export default function SideBar() {
     const [accountIsOpen, setAccountIsOpen] = useState(false)
     const [blogIsOpen, setBlogIsOpen] = useState(false)
     const { user } = useSelector(state => state.session)
+    const { setModalContent } = useModal();
 
 
 
@@ -18,9 +21,9 @@ export default function SideBar() {
                 <Link to='/' className='sidebar-links'>Home</Link>
                 <Link to='/explore' className='sidebar-links'>Explore</Link>
                 <p onClick={() => alert("Feature coming soon!")} className='sidebar-links'>Settings</p>
-                <p onClick={() => setAccountIsOpen(!accountIsOpen)} className='sidebar-links account-link'>Account {accountIsOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
+                <p onClick={!user ? () => setModalContent(<LoginFormModal />) : () => setAccountIsOpen(!accountIsOpen)} className='sidebar-links account-link'>Account {accountIsOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
 
-                {!user || user.message || !accountIsOpen? null :
+                {!user || user.message || !accountIsOpen ? null :
                     <div className='sidebar-links-container-2'>
                         <Link to='/likes' className='sidebar-links'>Likes</Link>
                         <Link to='/following' className='sidebar-links'>Following</Link>
