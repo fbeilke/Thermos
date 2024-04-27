@@ -2,9 +2,10 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { createPostThunk, saveFileThunk, removeFileThunk } from "../../redux/posts";
-import './CreatePhotoPost.css'
+import ReactPlayer from 'react-player';
+import './CreateVideoPost.css'
 
-export default function CreatePhotoPostModal() {
+export default function CreateVideoPostModal() {
     const dispatch = useDispatch();
     const [title, setTitle] = useState('');
     const [content, setContent] = useState('');
@@ -28,7 +29,7 @@ export default function CreatePhotoPostModal() {
                 title,
                 content,
                 caption,
-                post_type: "photo"
+                post_type: "video"
             }
 
             const response = await dispatch(createPostThunk(new_post))
@@ -90,41 +91,41 @@ export default function CreatePhotoPostModal() {
 
 
     return (
-        <div className='create-photo-post-modal'>
-            <h1 className='create-photo-post-label'>Create a new photo post</h1>
-            <form onSubmit={handleSubmit} className='create-photo-post-form'>
-                <div className='create-photo-input-containers'>
+        <div className='create-video-post-modal'>
+            <h1 className='create-video-post-label'>Create a new video post</h1>
+            <form onSubmit={handleSubmit} className='create-video-post-form'>
+                <div className='create-video-input-containers'>
                     <input
                         type='text'
                         value={title}
                         onChange={(e) => setTitle(e.target.value)}
-                        className='create-photo-inputs'
+                        className='create-video-inputs'
                     />
                     <div className="floating-placeholders" style={ title ? { top: "-18px" } : null }>
                         <label>Post Title (optional)</label>
                     </div>
-                    <div className='create-photo-error-container'>
+                    <div className='create-video-error-container'>
                         {errors.title && <p className='errors'>{errors.title}</p>}
                     </div>
                 </div>
-                <div className='create-photo-content-buttons'>
-                    {fileAccepted ? <img src={content} alt="Image not loading" className='post-photo-preview-image' /> :
-                        <div className='choose-photo-buttons'>
-                            <button className='create-photo-file-button' onClick={chooseUpload}>
-                                Upload a photo
+                <div className='create-video-content-buttons'>
+                    {fileAccepted ? <ReactPlayer url={content} controls={true} height={200} width={500} style={{backgroundColor: 'black'}} className='post-video-preview' /> :
+                        <div className='choose-video-buttons'>
+                            <button className='create-video-file-button' onClick={chooseUpload}>
+                                Upload a video
                             </button>
-                            <button className='create-photo-link-button' onClick={chooseLink}>
+                            <button className='create-video-link-button' onClick={chooseLink}>
                                 Link from online
                             </button>
                         </div>
                     }
                     {!link || fileAccepted ? null :
-                        <div className='create-photo-input-containers'>
+                        <div className='create-video-input-containers'>
                             <input
                                 type='text'
                                 value={content}
                                 onChange={(e) => setContent(e.target.value)}
-                                className='create-photo-inputs'
+                                className='create-video-inputs'
                             />
                             <div className="floating-placeholders" style={ content ? { top: "-18px" } : null }>
                                 <label>Photo Link</label>
@@ -134,12 +135,12 @@ export default function CreatePhotoPostModal() {
                     {!upload || fileAccepted  ? null :
                         <input
                             type='file'
-                            accept="image/*"
+                            accept="video/mp4, video/*"
                             onChange={(e) => fileSubmit(e.target.files[0])}
-                            className='create-photo-file-input'
+                            className='create-video-file-input'
                         />
                     }
-                    <div className='photo-loading-or-file-accepted-container'>
+                    <div className='video-loading-or-file-accepted-container'>
                         {!isLoading ? null : <p>Loading...</p>}
                         {!fileAccepted ? null :
                         <div>
@@ -148,21 +149,21 @@ export default function CreatePhotoPostModal() {
                         </div>
                         }
                     </div>
-                    <div className='create-photo-error-container'>
+                    <div className='create-video-error-container'>
                         {errors.content && <p className='errors'>{errors.content}</p>}
                     </div>
                 </div>
-                <div className='create-photo-input-containers'>
+                <div className='create-video-input-containers'>
                     <textarea
                         value={caption}
                         onChange={(e) => setCaption(e.target.value)}
-                        className='create-photo-input-textarea'
+                        className='create-video-input-textarea'
                     />
                     <div className="floating-placeholders" style={ caption ? { top: "-18px" } : null }>
                         <label>Photo Caption (optional)</label>
                     </div>
                 </div>
-                <button className='create-photo-post-button' type='submit'>Create post</button>
+                <button className='create-video-post-button' type='submit'>Create post</button>
             </form>
         </div>
     )

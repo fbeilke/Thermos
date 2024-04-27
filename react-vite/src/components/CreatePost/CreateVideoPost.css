@@ -1,0 +1,65 @@
+.create-video-post-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-video-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-video-input-containers {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-video-inputs {
+    width: 500px;
+}
+
+.floating-placeholders {
+    position: absolute;
+    pointer-events: none;
+    top: 3px;
+    left: 3px;
+}
+
+.create-video-inputs:focus+.floating-placeholders {
+    top: -18px;
+}
+
+.create-video-input-textarea {
+    width: 500px;
+    height: 100px;
+}
+
+.create-video-error-container {
+    min-height: 25px;
+}
+
+.create-video-content-buttons {
+    height: 250px;
+}
+
+.video-loading-file-accepted-container {
+    min-height: 20px;
+}
+
+.video-loading-file-accepted-container span {
+    margin: 10px;
+}
+
+
+.remove-file-link {
+    text-decoration: underline;
+
+}
+
+.choose-video-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 30px;
+}

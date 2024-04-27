@@ -2,6 +2,7 @@ import { IoText, IoCamera, IoVideocam, IoVolumeMedium } from "react-icons/io5";
 import { useModal } from "../../context/Modal";
 import CreateTextPostModal from "./CreateTextPostModal";
 import CreatePhotoPostModal from "./CreatePhotoPostModal";
+import CreateVideoPostModal from "./CreateVideoPostModal";
 import './CreateAnyPost.css'
 
 export default function CreateAnyPostModal() {
@@ -18,7 +19,7 @@ export default function CreateAnyPostModal() {
                 <p className='create-post-icons'>{<IoCamera />}</p>
                 <p className='create-post-buttons-text'>Photo</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent()}>
+            <div className='create-post-buttons' onClick={() => setModalContent(<CreateVideoPostModal />)}>
                 <p className='create-post-icons'>{<IoVideocam />}</p>
                 <p className='create-post-buttons-text'>Video</p>
             </div>
