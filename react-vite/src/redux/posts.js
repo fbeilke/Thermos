@@ -35,12 +35,13 @@ export const getAllPostsThunk = () => async (dispatch) => {
     }
 }
 
-export const createTextPostThunk = (post) => async (dispatch) => {
-    const response = await fetch('/api/posts/text', {
+export const createPostThunk = (post) => async (dispatch) => {
+    const response = await fetch('/api/posts/', {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify(post)
     })
+
 
     if (response.ok) {
         const data = await response.json()
@@ -48,6 +49,34 @@ export const createTextPostThunk = (post) => async (dispatch) => {
     } else {
         const errors = await response.json();
         return errors;
+    }
+}
+
+export const saveFileThunk = (file) => async () => {
+    const response = await fetch('/api/posts/file', {
+        method: "POST",
+        body: file
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        return data
+    } else {
+        const errors = await response.json();
+        return errors
+    }
+}
+
+export const removeFileThunk = (url) => async () => {
+    const response = await fetch('/api/posts/file/remove', {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(url)
+    })
+
+    if (!response.ok) {
+        const errors = await response.json()
+        return errors
     }
 }
 

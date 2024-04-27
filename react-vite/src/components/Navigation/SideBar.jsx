@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { useModal } from '../../context/Modal';
 import LoginFormModal from '../LoginFormModal';
 import './SideBar.css'
+import CreateAnyPostModal from '../CreatePost/CreateAnyPostModal';
 
 
 export default function SideBar() {
@@ -36,6 +37,9 @@ export default function SideBar() {
                         <Link to='/followers' className='sidebar-links'>Followers</Link>
                     </div>
                  : null }
+                 {!user ? null :
+                 <button className='create-post-button' onClick={() => setModalContent(<CreateAnyPostModal />)}>Create New Post</button>
+                 }
             </div>
         </div>
     )

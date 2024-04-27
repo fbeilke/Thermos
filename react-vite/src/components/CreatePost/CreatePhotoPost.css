@@ -1,0 +1,68 @@
+.create-photo-post-modal {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.create-photo-post-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-photo-input-containers {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.create-photo-inputs {
+    width: 500px;
+}
+
+.floating-placeholders {
+    position: absolute;
+    pointer-events: none;
+    top: 3px;
+    left: 3px;
+}
+
+.create-photo-inputs:focus+.floating-placeholders {
+    top: -18px;
+}
+
+.create-photo-input-textarea {
+    width: 500px;
+    height: 100px;
+}
+
+.create-photo-error-container {
+    min-height: 25px;
+}
+
+.create-photo-content-buttons {
+    height: 250px;
+}
+
+.photo-loading-file-accepted-container {
+    min-height: 20px;
+}
+
+.photo-loading-file-accepted-container span {
+    margin: 10px;
+}
+
+.post-photo-preview-image {
+    height: 175px;
+}
+
+.remove-file-link {
+    text-decoration: underline;
+
+}
+
+.choose-photo-buttons {
+    display: flex;
+    gap: 10px;
+    margin: 30px;
+}

@@ -17,6 +17,9 @@ export default function UserPage() {
 
     if (!singleUser) return null;
 
+
+    const sortedPosts = singleUser.postsByUser.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+
     return (
         <div className='user-page-outer'>
             <div className='user-page-container'>
@@ -27,7 +30,7 @@ export default function UserPage() {
             </div>
             <div className='user-page-feed'>
                 {/* sends an array of posts through props */}
-                <PostsFeed posts={singleUser.postsByUser} blogName={blogName}/>
+                <PostsFeed posts={sortedPosts} blogName={blogName}/>
             </div>
         </div>
     )

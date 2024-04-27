@@ -58,7 +58,7 @@ export default function PostsFeed({ posts, blogName }) {
                             {post.caption && <p>{post.caption}</p>}
                         </div>
                         <div className='interact-post-buttons'>
-                            {post.userId !== user.id ? null :
+                            {post.userId !== user?.id ? null :
                                 <button className='post-delete-button' onClick={(e) => handleDelete(e, post.id)}><MdDeleteForever /></button>
                             }
                         </div>

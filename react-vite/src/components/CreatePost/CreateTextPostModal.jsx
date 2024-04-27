@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useModal } from '../../context/Modal';
-import { createTextPostThunk } from '../../redux/posts'
+import { createPostThunk } from '../../redux/posts'
 import './CreateTextPost.css'
 
 export default function CreateTextPostModal() {
@@ -25,7 +25,7 @@ export default function CreateTextPostModal() {
                 post_type: "text"
             }
 
-            const response = await dispatch(createTextPostThunk(new_post))
+            const response = await dispatch(createPostThunk(new_post))
 
             if (response) {
                 setErrors(response);
@@ -49,7 +49,7 @@ export default function CreateTextPostModal() {
                         className='create-text-inputs'
                     />
                     <div className="floating-placeholders" style={ title ? { top: "-18px" } : null }>
-                        <label>Post Title</label>
+                        <label>Post Title (optional)</label>
                     </div>
                     <div className='create-text-error-container'>
                         {errors.title && <p className='errors'>{errors.title}</p>}
