@@ -49,10 +49,12 @@
     justify-content: flex-end;
 }
 
-.post-delete-button {
-    height: 30px;
-    width: 30px;
+.post-delete-button,
+.post-edit-button {
+    height: 40px;
+    width: 40px;
     font-size: 20px;
-    padding-left: 4px;
+    padding-left: 6px;
     padding-top: 3px;
+    margin: 5px;
 }

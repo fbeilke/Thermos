@@ -1,0 +1,20 @@
+.delete-post-modal {
+    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.delete-button {
+    margin: 10px;
+    background-color: red;
+}
+
+.delete-button:hover {
+    background-color: maroon;
+}
+
+.no-delete-button {
+    margin: 10px;
+}

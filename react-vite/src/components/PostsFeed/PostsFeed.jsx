@@ -2,8 +2,10 @@ import ReactPlayer from "react-player";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { MdDeleteForever } from "react-icons/md";
+import { FaEdit } from "react-icons/fa";
 import { useModal } from "../../context/Modal";
 import DeletePostModal from "../DeletePost/DeletePostModal"
+import EditPostModal from "../EditPost/EditPostModal";
 import './PostsFeed.css';
 
 export default function PostsFeed({ posts, blogName }) {
@@ -57,11 +59,12 @@ export default function PostsFeed({ posts, blogName }) {
                         <div className='post-caption'>
                             {post.caption && <p>{post.caption}</p>}
                         </div>
-                        <div className='interact-post-buttons'>
-                            {post.userId !== user?.id ? null :
+                        {post.userId !== user?.id ? null :
+                            <div className='interact-post-buttons'>
+                                <button className='post-edit-button' onClick={() => setModalContent(<EditPostModal post={post} />)}><FaEdit /></button>
                                 <button className='post-delete-button' onClick={(e) => handleDelete(e, post.id)}><MdDeleteForever /></button>
-                            }
-                        </div>
+                            </div>
+                        }
                     </div>
                 </div>
             ))}

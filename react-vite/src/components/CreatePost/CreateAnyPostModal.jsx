@@ -3,6 +3,7 @@ import { useModal } from "../../context/Modal";
 import CreateTextPostModal from "./CreateTextPostModal";
 import CreatePhotoPostModal from "./CreatePhotoPostModal";
 import CreateVideoPostModal from "./CreateVideoPostModal";
+import CreateAudioPostModal from "./CreateAudioPostModal";
 import './CreateAnyPost.css'
 
 export default function CreateAnyPostModal() {
@@ -23,7 +24,7 @@ export default function CreateAnyPostModal() {
                 <p className='create-post-icons'>{<IoVideocam />}</p>
                 <p className='create-post-buttons-text'>Video</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent()}>
+            <div className='create-post-buttons' onClick={() => setModalContent(<CreateAudioPostModal />)}>
                 <p className='create-post-icons'>{<IoVolumeMedium />}</p>
                 <p className='create-post-buttons-text'>Audio</p>
             </div>

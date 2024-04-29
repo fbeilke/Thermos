@@ -58,6 +58,7 @@
 
 .remove-file-link {
     text-decoration: underline;
+    cursor: pointer;
 
 }
 

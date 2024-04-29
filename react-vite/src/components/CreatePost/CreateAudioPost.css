@@ -1,22 +1,22 @@
-.create-video-post-modal {
+.create-audio-post-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.create-video-post-form {
+.create-audio-post-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.create-video-input-containers {
+.create-audio-input-containers {
     position: relative;
     margin-bottom: 20px;
 }
 
-.create-video-inputs {
+.create-audio-inputs {
     width: 500px;
 }
 
@@ -27,31 +27,34 @@
     left: 3px;
 }
 
-.create-video-inputs:focus+.floating-placeholders {
+.create-audio-inputs:focus+.floating-placeholders {
     top: -18px;
 }
 
-.create-video-input-textarea {
+.create-audio-input-textarea {
     width: 500px;
     height: 100px;
 }
 
-.create-video-error-container {
+.create-audio-error-container {
     min-height: 25px;
 }
 
-.create-video-content-buttons {
+.create-audio-content-buttons {
     height: 250px;
 }
 
-.video-loading-file-accepted-container {
+.audio-loading-file-accepted-container {
     min-height: 20px;
 }
 
-.video-loading-file-accepted-container span {
+.audio-loading-file-accepted-container span {
     margin: 10px;
 }
 
+.post-audio-preview {
+    height: 175px;
+}
 
 .remove-file-link {
     text-decoration: underline;
@@ -59,7 +62,7 @@
 
 }
 
-.choose-video-buttons {
+.choose-audio-buttons {
     display: flex;
     gap: 10px;
     margin: 30px;

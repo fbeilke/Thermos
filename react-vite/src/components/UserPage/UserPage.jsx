@@ -18,7 +18,11 @@ export default function UserPage() {
     if (!singleUser) return null;
 
 
-    const sortedPosts = singleUser.postsByUser.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
+    const sortedPosts = singleUser.postsByUser.sort((a, b) => {
+        const dateA = new Date(a.createdAt)
+        const dateB = new Date(b.createdAt)
+        return dateA < dateB ? 1 : -1
+    })
 
     return (
         <div className='user-page-outer'>

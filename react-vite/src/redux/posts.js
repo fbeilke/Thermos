@@ -1,5 +1,6 @@
 const GET_ALL_POSTS = "postsReducer/GET_ALL_POSTS"
 const CREATE_POST = "postsReducer/CREATE_POST"
+const UPDATE_POST = "postsReducer/UPDATE_POST"
 const DELETE_POST = "postsReducer/DELETE_POST"
 
 
@@ -13,6 +14,13 @@ function getAllPosts(posts) {
 function createPost(post) {
     return {
         type: CREATE_POST,
+        post
+    }
+}
+
+function updatePost(post) {
+    return {
+        type: UPDATE_POST,
         post
     }
 }
@@ -80,6 +88,22 @@ export const removeFileThunk = (url) => async () => {
     }
 }
 
+export const updatePostThunk = (post) => async (dispatch) => {
+    const response = await fetch(`/api/posts/${post.id}`, {
+        method: "PUT",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify(post)
+    })
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(updatePost(data))
+    } else {
+        const errors = await response.json();
+        return errors
+    }
+}
+
 export const deletePostThunk = (postId) => async (dispatch) => {
     const response = await fetch(`/api/posts/${postId}`, {
         method: "DELETE"
@@ -101,6 +125,11 @@ export default function postsReducer(state = initialState, action) {
             return {...state, posts: action.posts}
         }
         case CREATE_POST: {
+            const newPosts = {...state.posts}
+            newPosts[action.post.id] = action.post
+            return {...state, posts: newPosts}
+        }
+        case UPDATE_POST: {
             const newPosts = {...state.posts}
             newPosts[action.post.id] = action.post
             return {...state, posts: newPosts}

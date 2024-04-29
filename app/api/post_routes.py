@@ -71,7 +71,7 @@ def remove_file():
     Remove file without it being attached to a post, delete from s3 bucket
     """
 
-    url_string = str(request.data).replace("b'", "")
+    url_string = request.json
 
     removed = s3_remove_file(url_string)
 
@@ -79,6 +79,32 @@ def remove_file():
         return {"error": "File was not able to be removed"}, 500
 
     return {"message": "Successfully removed file"}
+
+
+@post_routes.route('/<int:id>', methods=["PUT"])
+@login_required
+def update_post(id):
+
+    data = request.json
+
+    form = PostForm(**data)
+    form['csrf_token'].data = request.cookies['csrf_token']
+
+    if form.validate_on_submit():
+        post_to_update = Post.query.filter(Post.id == id).first()
+
+        if not post_to_update:
+            return {"message": "Post was not found"}, 404
+        else:
+            for key, value in data.items():
+                setattr(post_to_update, key, value)
+            db.session.commit()
+            return post_to_update.to_dict()
+    else:
+        return form.errors, 400
+
+
+
 
 
 @post_routes.route('/<int:id>', methods=["DELETE"])
@@ -89,7 +115,7 @@ def delete_post(id):
     if not post_to_delete:
         return {"message": "Post was not found"}, 404
     else:
-        if post_to_delete.post_type != 'text':
+        if post_to_delete.post_type != 'text' and 'thermos-project-bucket' in post_to_delete.content:
             file = post_to_delete.content
             s3_remove_file(file)
 

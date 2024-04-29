@@ -1,22 +1,22 @@
-.create-video-post-modal {
+.edit-post-modal {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.create-video-post-form {
+.edit-post-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.create-video-input-containers {
+.edit-post-input-containers {
     position: relative;
     margin-bottom: 20px;
 }
 
-.create-video-inputs {
+.edit-post-inputs {
     width: 500px;
 }
 
@@ -27,40 +27,42 @@
     left: 3px;
 }
 
-.create-video-inputs:focus+.floating-placeholders {
+.edit-post-inputs:focus+.floating-placeholders {
     top: -18px;
 }
 
-.create-video-input-textarea {
+.edit-post-textarea {
+    width: 500px;
+    height: 300px;
+}
+
+.edit-photo-preview {
+    height: 175px;
+}
+
+.edit-caption-textarea {
     width: 500px;
     height: 100px;
 }
 
-.create-video-error-container {
+.edit-post-error-container {
     min-height: 25px;
 }
 
-.create-video-content-buttons {
+.choose-file-buttons {
     height: 250px;
 }
 
-.video-loading-file-accepted-container {
+.edit-post-file-accepted-container {
     min-height: 20px;
 }
 
-.video-loading-file-accepted-container span {
+.edit-post-file-accepted-container span {
     margin: 10px;
 }
-
 
 .remove-file-link {
     text-decoration: underline;
     cursor: pointer;
 
-}
-
-.choose-video-buttons {
-    display: flex;
-    gap: 10px;
-    margin: 30px;
 }
