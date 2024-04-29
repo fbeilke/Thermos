@@ -128,7 +128,7 @@ export default function CreateVideoPostModal() {
                                 className='create-video-inputs'
                             />
                             <div className="floating-placeholders" style={ content ? { top: "-18px" } : null }>
-                                <label>Photo Link</label>
+                                <label>Video Link</label>
                             </div>
                         </div>
                     }

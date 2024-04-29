@@ -1,4 +1,5 @@
 from .db import db, environment, SCHEMA, add_prefix_for_prod
+from .reblog import Reblog
 from werkzeug.security import generate_password_hash, check_password_hash
 from flask_login import UserMixin
 from datetime import datetime
@@ -19,6 +20,7 @@ class User(db.Model, UserMixin):
     updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     posts = db.relationship("Post", back_populates="creator_user")
+    reblogs = db.relationship("Reblog", back_populates="reblog_creator", foreign_keys=[Reblog.user_id])
 
     @property
     def password(self):
@@ -41,11 +43,13 @@ class User(db.Model, UserMixin):
 
     def to_dict_plus(self):
         posts_by_user = [post.to_dict() for post in self.posts]
+        reblogs_by_user = [reblog.to_dict() for reblog in self.reblogs]
 
         return {
             'id': self.id,
             'blogName': self.blog_name,
             'email': self.email,
             'profilePictureUrl': self.profile_picture_url,
-            'postsByUser': posts_by_user
+            'postsByUser': posts_by_user,
+            'reblogsByUser': reblogs_by_user
         }

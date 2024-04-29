@@ -19,6 +19,7 @@ class Post(db.Model):
     updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     creator_user = db.relationship("User", back_populates="posts")
+    post_reblogs = db.relationship("Reblog", back_populates="original_post")
 
     def to_dict(self):
         return {

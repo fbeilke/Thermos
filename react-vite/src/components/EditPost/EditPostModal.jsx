@@ -188,7 +188,7 @@ export default function EditPostModal ({ post }) {
                     {(!upload || fileAccepted) || post.postType === 'text'  ? null :
                         <input
                             type='file'
-                            accept="image/*, video/mov, video/mp4, audio/mp3, audio/mp4"
+                            accept="image/*, video/*, video/mp4, audio/mp3, audio/mp4"
                             onChange={(e) => fileSubmit(e.target.files[0])}
                             className='create-photo-file-input'
                         />
