@@ -1,0 +1,25 @@
+.each-single-post {
+    display: flex;
+    flex-direction: column-reverse;
+    background-color: #caba9c;
+    border-radius: 25px;
+    width: 500px;
+    padding: 50px;
+    margin: 30px 0px;
+
+}
+
+.interact-post-buttons {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.post-delete-button,
+.post-edit-button {
+    height: 40px;
+    width: 40px;
+    font-size: 20px;
+    padding-left: 6px;
+    padding-top: 3px;
+    margin: 5px;
+}

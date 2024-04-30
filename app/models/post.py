@@ -15,6 +15,7 @@ class Post(db.Model):
     likes = db.Column(db.Integer, default=0)
     tags = db.Column(db.String(1000))
     post_type = db.Column(db.String(25), nullable=False)
+    previous_post_id = db.Column(db.Integer)
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
@@ -31,6 +32,7 @@ class Post(db.Model):
             'likes': self.likes,
             'tags': self.tags,
             'postType': self.post_type,
+            'previousPostId': self.previous_post_id,
             'createdAt': self.created_at,
             'creator': self.creator_user.blog_name,
             'creatorImage': self.creator_user.profile_picture_url

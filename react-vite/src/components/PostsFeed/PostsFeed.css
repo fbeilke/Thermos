@@ -6,13 +6,10 @@
     display: flex;
 }
 
-.each-post-container {
-    background-color: #caba9c;
-    border-radius: 25px;
-    width: 500px;
-    padding: 50px;
-    margin: 30px 0px;
+.original-post {
+    display: flex;
 }
+
 
 .post-photo {
     width: 500px;
@@ -57,4 +54,19 @@
     padding-left: 6px;
     padding-top: 3px;
     margin: 5px;
+}
+
+.reblogged-from-link {
+    text-decoration: none;
+    color: #4c6444;
+}
+
+.reblogged-from-link:hover {
+    cursor: pointer;
+    background-color: #102820;
+    color: white;
+}
+
+.reblog-content {
+    border-top: 1px solid #8a6240;
 }

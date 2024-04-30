@@ -17,8 +17,10 @@ export default function UserPage() {
 
     if (!singleUser) return null;
 
+    const allPosts = [...singleUser.postsByUser, ...singleUser.reblogsByUser]
 
-    const sortedPosts = singleUser.postsByUser.sort((a, b) => {
+
+    const sortedPosts = allPosts.sort((a, b) => {
         const dateA = new Date(a.createdAt)
         const dateB = new Date(b.createdAt)
         return dateA < dateB ? 1 : -1

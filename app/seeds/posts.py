@@ -11,6 +11,7 @@ def seed_posts():
         likes=0,
         tags="music,song,loud",
         post_type="audio",
+        previous_post_id=None
         )
     post_2 = Post(
         title="Abstract AI Generated Art",
@@ -20,6 +21,7 @@ def seed_posts():
         likes=0,
         tags="art,ai generated,abstract",
         post_type="photo",
+        previous_post_id=None
         )
     post_3 = Post(
         title="I never know what to say",
@@ -29,6 +31,7 @@ def seed_posts():
         likes=0,
         tags="text post,hello",
         post_type="text",
+        previous_post_id=None
         )
     post_4 = Post(
         title="Me coming for your girl",
@@ -38,6 +41,7 @@ def seed_posts():
         likes=0,
         tags="gif,monster,joke",
         post_type="photo",
+        previous_post_id=None
         )
     post_5 = Post(
         title=None,
@@ -47,6 +51,7 @@ def seed_posts():
         likes=0,
         tags="text post,poetry",
         post_type="text",
+        previous_post_id=None
         )
     post_6 = Post(
         title=None,
@@ -56,6 +61,7 @@ def seed_posts():
         likes=0,
         tags="text post,poetry",
         post_type="text",
+        previous_post_id=None
         )
     post_7 = Post(
         title="Bodhi has a weird tongue",
@@ -65,6 +71,7 @@ def seed_posts():
         likes=0,
         tags="video,Bodhi,tongue",
         post_type="video",
+        previous_post_id=None
         )
     post_8 = Post(
         title=None,
@@ -74,6 +81,7 @@ def seed_posts():
         likes=0,
         tags="need I say more?,gif",
         post_type="photo",
+        previous_post_id=None
         )
     post_9 = Post(
         title=None,
@@ -83,6 +91,7 @@ def seed_posts():
         likes=0,
         tags="text post,computer",
         post_type="text",
+        previous_post_id=None
         )
     post_10 = Post(
         title="I'm learning so much from App Academy",
@@ -92,6 +101,7 @@ def seed_posts():
         likes=0,
         tags="text post,personal",
         post_type="text",
+        previous_post_id=None
         )
     post_11 = Post(
         title=None,
@@ -101,6 +111,7 @@ def seed_posts():
         likes=0,
         tags="text post,joke",
         post_type="text",
+        previous_post_id=None
         )
     post_12 = Post(
         title=None,
@@ -110,6 +121,7 @@ def seed_posts():
         likes=0,
         tags="text post,bo burnham",
         post_type="text",
+        previous_post_id=None
         )
     post_13 = Post(
         title="have some real lofi",
@@ -119,6 +131,7 @@ def seed_posts():
         likes=0,
         tags="audio,lofi,michael schuller music,cloudy",
         post_type="audio",
+        previous_post_id=None
         )
     post_14 = Post(
         title="Listen for the thunk",
@@ -128,6 +141,7 @@ def seed_posts():
         likes=0,
         tags="cat,pants,funny",
         post_type="video",
+        previous_post_id=None
         )
     post_15 = Post(
         title="The ideal man",
@@ -137,6 +151,7 @@ def seed_posts():
         likes=0,
         tags="body builder,man,joke",
         post_type="photo",
+        previous_post_id=None
         )
     post_16 = Post(
         title=None,
@@ -146,6 +161,7 @@ def seed_posts():
         likes=0,
         tags="art,comic book,monster",
         post_type="photo",
+        previous_post_id=None
         )
     post_17 = Post(
         title=None,
@@ -155,6 +171,7 @@ def seed_posts():
         likes=0,
         tags="song,joke,soft serve",
         post_type="audio",
+        previous_post_id=None
         )
     post_18 = Post(
         title=None,
@@ -164,6 +181,7 @@ def seed_posts():
         likes=0,
         tags="taylor swift,music,text post",
         post_type="text",
+        previous_post_id=None
         )
     post_19 = Post(
         title=None,
@@ -173,6 +191,7 @@ def seed_posts():
         likes=0,
         tags="song,lofi,rain",
         post_type="audio",
+        previous_post_id=None
         )
     post_20 = Post(
         title=None,
@@ -182,6 +201,7 @@ def seed_posts():
         likes=0,
         tags="video,Bodhi,Daisy,dog",
         post_type="video",
+        previous_post_id=None
         )
     post_21 = Post(
         title="I love my body",
@@ -191,6 +211,7 @@ def seed_posts():
         likes=0,
         tags="text post,positivity",
         post_type="text",
+        previous_post_id=None
         )
     post_22 = Post(
         title="this tiktok is amazing",
@@ -200,6 +221,7 @@ def seed_posts():
         likes=0,
         tags="tiktok,guitar,song",
         post_type="video",
+        previous_post_id=None
         )
     post_23 = Post(
         title="Crash Course Computer Science #1",
@@ -209,6 +231,7 @@ def seed_posts():
         likes=0,
         tags="youtube,video,crash course,computers",
         post_type="video",
+        previous_post_id=None
         )
     post_24 = Post(
         title="Cursed lady",
@@ -218,6 +241,7 @@ def seed_posts():
         likes=0,
         tags="cursed lady,art,horror,monster",
         post_type="photo",
+        previous_post_id=None
         )
     post_25 = Post(
         title=None,
@@ -227,6 +251,7 @@ def seed_posts():
         likes=0,
         tags="text post,freddy fazbear's pizzeria",
         post_type="text",
+        previous_post_id=None
         )
     post_26 = Post(
         title="Why I have a hook",
@@ -236,6 +261,7 @@ def seed_posts():
         likes=0,
         tags="text post,hook",
         post_type="text",
+        previous_post_id=None
         )
     post_27 = Post(
         title="Five Nights at Freddy's Movie Trailer",
@@ -245,6 +271,7 @@ def seed_posts():
         likes=0,
         tags="five nights at freddy's,freddy fazbear's pizzeria, video",
         post_type="video",
+        previous_post_id=None
         )
     post_28 = Post(
         title="AI Generated Fantasy Tunnel",
@@ -254,6 +281,7 @@ def seed_posts():
         likes=0,
         tags='ai generated,art,fantasy,faeries',
         post_type="photo",
+        previous_post_id=None
         )
     post_29 = Post(
         title="Some cow jokes",
@@ -263,6 +291,7 @@ def seed_posts():
         likes=0,
         tags="joke,funny,cow",
         post_type="text",
+        previous_post_id=None
         )
     post_30 = Post(
         title=None,
@@ -272,6 +301,7 @@ def seed_posts():
         likes=0,
         tags="text post,positivity",
         post_type="text",
+        previous_post_id=None
         )
     post_31 = Post(
         title=None,
@@ -281,6 +311,7 @@ def seed_posts():
         likes=0,
         tags="sad,photo,blurry",
         post_type="photo",
+        previous_post_id=None
         )
     post_32 = Post(
         title="Pants was a cat with no brain cells",
@@ -290,6 +321,7 @@ def seed_posts():
         likes=0,
         tags='pants,cat,funny',
         post_type="video",
+        previous_post_id=None
         )
     post_33 = Post(
         title="We all get embarrassed sometimes...",
@@ -299,6 +331,7 @@ def seed_posts():
         likes=0,
         tags="funny,embarrassing,",
         post_type="text",
+        previous_post_id=None
         )
     post_34 = Post(
         title=None,
@@ -308,6 +341,7 @@ def seed_posts():
         likes=0,
         tags="text post",
         post_type="text",
+        previous_post_id=None
         )
     post_35 = Post(
         title="Checkout this steampunk style dude",
@@ -317,6 +351,7 @@ def seed_posts():
         likes=0,
         tags="art",
         post_type="photo",
+        previous_post_id=None
         )
     post_36 = Post(
         title=None,
@@ -326,6 +361,7 @@ def seed_posts():
         likes=0,
         tags="game,zombies",
         post_type="photo",
+        previous_post_id=None
         )
     post_37 = Post(
         title=None,
@@ -335,6 +371,7 @@ def seed_posts():
         likes=0,
         tags="text post,dare",
         post_type="text",
+        previous_post_id=None
         )
     post_38 = Post(
         title="AI Generated Robot Lady",
@@ -344,6 +381,7 @@ def seed_posts():
         likes=0,
         tags="ai generated,art,robot,lady",
         post_type="photo",
+        previous_post_id=None
         )
     post_39 = Post(
         title="Jelle's Marble League 2023 All Events",
@@ -353,6 +391,7 @@ def seed_posts():
         likes=0,
         tags="video,jelle,marbles",
         post_type="video",
+        previous_post_id=None
         )
     post_40 = Post(
         title="How would you feel with this thing coming at you?",
@@ -362,12 +401,95 @@ def seed_posts():
         likes=0,
         tags="art,monster",
         post_type="photo",
+        previous_post_id=None
         )
+    post_41 = Post(
+        title=None,
+        content="App Academy is the GOAT",
+        caption=None,
+        user_id=3,
+        likes=0,
+        tags="app academy,computers",
+        post_type="text",
+        previous_post_id=10
+    )
+    post_42 = Post(
+        title=None,
+        content="Voweer!!",
+        caption=None,
+        user_id=2,
+        likes=0,
+        tags=None,
+        post_type="text",
+        previous_post_id=16
+    )
+    post_43 = Post(
+        title=None,
+        content="Ooh, listening with headphones it bounces back and forth between ears",
+        caption=None,
+        user_id=3,
+        likes=0,
+        tags=None,
+        post_type='text',
+        previous_post_id=19
+    )
+    post_44 = Post(
+        title=None,
+        content="I don't think I speak whatever language this is.",
+        caption=None,
+        user_id=4,
+        likes=0,
+        tags=None,
+        post_type='text',
+        previous_post_id=2
+    )
+    post_45 = Post(
+        title=None,
+        content="Drop the name of the game, bruv",
+        caption=None,
+        user_id=4,
+        likes=0,
+        tags=None,
+        post_type='text',
+        previous_post_id=36
+    )
+    post_46 = Post(
+        title=None,
+        content="Thanks for sharing this! I love learning about computers",
+        caption=None,
+        user_id=2,
+        likes=0,
+        tags='computers',
+        post_type='text',
+        previous_post_id=23
+    )
+    post_47 = Post(
+        title=None,
+        content="Tongues are always weird, but this makes me extra uncomfortable for some reason.",
+        caption=None,
+        user_id=2,
+        likes=0,
+        tags=None,
+        post_type='text',
+        previous_post_id=7
+    )
+    post_48 = Post(
+        title=None,
+        content="Gah! Why would you post this? I will have nightmares now...",
+        caption=None,
+        user_id=5,
+        likes=0,
+        tags='if I had to see it,so do you',
+        post_type='text',
+        previous_post_id=24
+    )
+
 
     posts_to_seed = [post_1, post_2, post_3, post_4, post_5, post_6, post_7, post_8, post_9, post_10,
         post_11, post_12, post_13, post_14, post_15, post_16, post_17, post_18, post_19, post_20,
         post_21, post_22, post_23, post_24, post_25, post_26, post_27, post_28, post_29, post_30,
-        post_31, post_32, post_33, post_34, post_35, post_36, post_37, post_38, post_39, post_40]
+        post_31, post_32, post_33, post_34, post_35, post_36, post_37, post_38, post_39, post_40,
+        post_41, post_42, post_43, post_44, post_45, post_46, post_47, post_48]
 
     for post in posts_to_seed:
         db.session.add(post)

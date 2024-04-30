@@ -44,6 +44,7 @@ def upgrade():
     sa.Column('likes', sa.Integer),
     sa.Column('tags', sa.String(length=1000)),
     sa.Column('post_type', sa.String(length=25), nullable=False),
+    sa.Column('previous_post_id', sa.Integer),
     sa.Column('created_at', sa.DateTime()),
     sa.Column('updated_at', sa.DateTime()),
     sa.ForeignKeyConstraint(['user_id'], ['users.id']),

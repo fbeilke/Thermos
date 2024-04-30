@@ -1,0 +1,17 @@
+
+
+.post-photo {
+    width: 500px;
+    margin: auto;
+}
+
+.video-post-content {
+    width: 500px;
+}
+
+
+.post-creator {
+    color: #4c6444;
+    font-size: 15px;
+    border-bottom: 1px solid #8a6240;
+}
