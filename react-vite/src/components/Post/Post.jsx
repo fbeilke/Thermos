@@ -12,36 +12,69 @@ export default function Post({ postId, allPosts }) {
 
 
 
-
     return (
         <div className='each-post-container'>
-            <p className='post-creator'>{post.creator} posted</p>
-            {post.title && <h3>{post.title}</h3>}
-            <div className='post-content'>
-                {post.postType !== 'text' ? null :
-                    <div className='text-post-content'>
-                        <p>{post.content}</p>
+            {allPosts[postId].reblogCreator ?
+                <div className='reblogged-post-container'>
+                    <p className='post-creator'>{post.originalPost.creator} posted</p>
+                    {post.originalPost.title && <h3>{post.originalPost.title}</h3>}
+                    <div className='post-content'>
+                        {post.originalPost.postType !== 'text' ? null :
+                            <div className='text-post-content'>
+                                <p>{post.originalPost.content}</p>
+                            </div>
+                        }
+                        {post.originalPost.postType !== 'photo' ? null :
+                            <div className='photo-post-content'>
+                                <img className='post-photo' src={post.originalPost.content} alt={`${post.originalPost.id} photo`} />
+                            </div>
+                        }
+                        {post.originalPost.postType !== 'audio' ? null :
+                            <div className='audio-post-content'>
+                                <audio controls={true} src={post.originalPost.content}>Your browser does not support audio player</audio>
+                            </div>
+                        }
+                        {post.originalPost.postType !== 'video' ? null :
+                            <div className='video-post-content'>
+                                <ReactPlayer url={post.originalPost.content} controls={true} width={500} style={{backgroundColor: 'black'}}/>
+                            </div>
+                        }
                     </div>
-                }
-                {post.postType !== 'photo' ? null :
-                    <div className='photo-post-content'>
-                        <img className='post-photo' src={post.content} alt={`${post.id} photo`} />
+                    <div className='post-caption'>
+                        {post.originalPost.caption && <p>{post.originalPost.caption}</p>}
                     </div>
-                }
-                {post.postType !== 'audio' ? null :
-                    <div className='audio-post-content'>
-                        <audio controls={true} src={post.content}>Your browser does not support audio player</audio>
+                </div>
+            :
+                <div className='original-post-container'>
+                    <p className='post-creator'>{post.creator} posted</p>
+                    {post.title && <h3>{post.title}</h3>}
+                    <div className='post-content'>
+                        {post.postType !== 'text' ? null :
+                            <div className='text-post-content'>
+                                <p>{post.content}</p>
+                            </div>
+                        }
+                        {post.postType !== 'photo' ? null :
+                            <div className='photo-post-content'>
+                                <img className='post-photo' src={post.content} alt={`${post.id} photo`} />
+                            </div>
+                        }
+                        {post.postType !== 'audio' ? null :
+                            <div className='audio-post-content'>
+                                <audio controls={true} src={post.content}>Your browser does not support audio player</audio>
+                            </div>
+                        }
+                        {post.postType !== 'video' ? null :
+                            <div className='video-post-content'>
+                                <ReactPlayer url={post.content} controls={true} width={500} style={{backgroundColor: 'black'}}/>
+                            </div>
+                        }
                     </div>
-                }
-                {post.postType !== 'video' ? null :
-                    <div className='video-post-content'>
-                        <ReactPlayer url={post.content} controls={true} width={500} style={{backgroundColor: 'black'}}/>
+                    <div className='post-caption'>
+                        {post.caption && <p>{post.caption}</p>}
                     </div>
-                }
-            </div>
-            <div className='post-caption'>
-                {post.caption && <p>{post.caption}</p>}
-            </div>
+                </div>
+            }
         </div>
     )
 

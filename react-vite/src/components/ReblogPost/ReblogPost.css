@@ -1,0 +1,13 @@
+.reblog-post-modal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 600px;
+}
+
+.create-post-buttons-container-in-reblog-modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

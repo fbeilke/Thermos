@@ -9,17 +9,38 @@
 
 }
 
-.interact-post-buttons {
+.post-buttons {
     display: flex;
     justify-content: flex-end;
 }
 
+.interact-own-post-buttons {
+    display: flex;
+}
+
+.interact-post-buttons {
+    display: flex;
+}
+
 .post-delete-button,
-.post-edit-button {
+.post-edit-button,
+.post-reblog-button {
     height: 40px;
     width: 40px;
     font-size: 20px;
     padding-left: 6px;
     padding-top: 3px;
     margin: 5px;
+}
+
+.reblog-button-icon {
+    height: 20px;
+    width: 20px;
+}
+
+.reblogged-label {
+    color: #4c6444;
+    height: 20px;
+    padding: 5px;
+    border-bottom: 1px solid white;
 }
