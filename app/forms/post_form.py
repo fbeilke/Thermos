@@ -10,6 +10,7 @@ class PostForm(FlaskForm):
     caption = StringField('Caption', validators=[Optional()])
     tags = StringField('Tags', validators=[Optional(), Length(max=1000, message='Tag can be a maximum of 1000 characters long')])
     post_type = StringField('Post Type', validators=[AnyOf(['text', 'photo', 'video', 'audio'], message='Post must be text, photo, video, or audio')])
+    previous_post_id = IntegerField('Previous Post Id', validators=[Optional()])
 
 
 class PostFileForm(FlaskForm):
