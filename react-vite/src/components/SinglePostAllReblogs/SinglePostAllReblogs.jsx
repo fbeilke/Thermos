@@ -10,12 +10,12 @@ import ReblogPostModal from "../ReblogPost/ReblogPostModal";
 export default function SinglePost({ mainPostId, allPosts, user }) {
     const { setModalContent } = useModal();
 
-    if (!allPosts) return null;
+    if (!allPosts || !mainPostId) return null;
 
-    async function handleDelete(e, postID) {
+    async function handleDelete(e, postID, reblog) {
         e.preventDefault();
 
-        setModalContent(<DeletePostModal postId={postID} />)
+        setModalContent(<DeletePostModal postId={postID} reblog={reblog}/>)
 
     }
 
@@ -25,18 +25,28 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
 
     while (currPost) {
         allLinkedPosts.push(currPost)
-        currPost = allPosts[currPost].previousPostId
+        if (allPosts[currPost]) {
+            currPost = allPosts[currPost].previousPostId
+        } else {
+            currPost = null;
+        }
     }
 
+    if (!allPosts[mainPostId]) return null;
 
 
     return (
         <div className='each-single-post'>
             <div className='post-buttons'>
-                {allPosts[mainPostId].userId !== user?.id ? null :
+                {allPosts[mainPostId].userId === user?.id && allPosts[mainPostId].reblogCreator ?
+                    <div className='interact-own-post-buttons'>
+                        <button className='post-delete-button' onClick={(e) => handleDelete(e, mainPostId, true)}><MdDeleteForever /></button>
+                    </div>
+                : null }
+                {allPosts[mainPostId].userId !== user?.id || allPosts[mainPostId].reblogCreator ? null :
                     <div className='interact-own-post-buttons'>
                         <button className='post-edit-button' onClick={() => setModalContent(<EditPostModal post={allPosts[mainPostId]} />)}><FaEdit /></button>
-                        <button className='post-delete-button' onClick={(e) => handleDelete(e, mainPostId)}><MdDeleteForever /></button>
+                        <button className='post-delete-button' onClick={(e) => handleDelete(e, mainPostId, false)}><MdDeleteForever /></button>
                     </div>
                 }
                 {!user ? null :

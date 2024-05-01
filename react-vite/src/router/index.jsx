@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router-dom';
 import Layout from './Layout';
 import UserPage from '../components/UserPage/UserPage'
 import ExplorePage from '../components/ExplorePage/ExplorePage'
+import HomeFeed from '../components/HomeFeed/HomeFeed';
 
 
 export const router = createBrowserRouter([
@@ -10,7 +11,7 @@ export const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <h2>Welcome!</h2>,
+        element: <HomeFeed />,
       },
       {
         path: "/blogs/:blogName",

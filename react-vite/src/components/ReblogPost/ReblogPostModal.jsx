@@ -5,6 +5,8 @@ import { reblogAsIsThunk } from '../../redux/reblogs';
 import './ReblogPost.css';
 import CreateTextReblog from './CreateTextReblog';
 import CreatePhotoReblog from './CreatePhotoReblog';
+import CreateVideoReblog from './CreateVideoReblog';
+import CreateAudioReblog from './CreateAudioReblog';
 
 export default function ReblogPostModal({ post }) {
     const dispatch = useDispatch();
@@ -37,11 +39,11 @@ export default function ReblogPostModal({ post }) {
                 <p className='create-post-icons'>{<IoCamera />}</p>
                 <p className='create-post-buttons-text'>Photo</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent()}>
+            <div className='create-post-buttons' onClick={() => setModalContent(<CreateVideoReblog post={post} />)}>
                 <p className='create-post-icons'>{<IoVideocam />}</p>
                 <p className='create-post-buttons-text'>Video</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent()}>
+            <div className='create-post-buttons' onClick={() => setModalContent(<CreateAudioReblog post={post} />)}>
                 <p className='create-post-icons'>{<IoVolumeMedium />}</p>
                 <p className='create-post-buttons-text'>Audio</p>
             </div>

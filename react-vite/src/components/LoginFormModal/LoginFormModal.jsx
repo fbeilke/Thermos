@@ -69,7 +69,7 @@ function LoginFormModal() {
             onChange={(e) => setPassword(e.target.value)}
             className='login-inputs'
           />
-          <div className="floating-placeholders" style={ password ? { top: "-10.5px" } : null }>
+          <div className="floating-placeholders" style={ password ? { top: "-18px" } : null }>
             <label>Password</label>
           </div>
           <div className='login-errors-container'>

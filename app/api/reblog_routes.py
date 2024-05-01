@@ -32,3 +32,15 @@ def reblog_as_is():
     db.session.add(new_reblog)
     db.session.commit()
     return {"message": "Successfully created"}
+
+@reblog_routes.route('/<int:id>', methods=["DELETE"])
+@login_required
+def delete_reblog(id):
+    reblog_to_delete = Reblog.query.filter(Reblog.id == id).first()
+
+    if not reblog_to_delete:
+        return {"message": "Reblog was not found"}, 404
+    else:
+        db.session.delete(reblog_to_delete)
+        db.session.commit()
+        return {"message": "Successfully deleted"}

@@ -80,11 +80,11 @@ function SignupFormModal() {
             onChange={(e) => setBlogName(e.target.value)}
             className='signup-inputs'
           />
-          <div className="floating-placeholders" style={ blogName ? { top: "-10.5px" } : null }>
+          <div className="floating-placeholders" style={ blogName ? { top: "-18px" } : null }>
             <label>Blog Name</label>
           </div>
           <div className='signup-errors-container'>
-            {errors.blogName && <p className='errors'>{errors.blogName}</p>}
+            {errors.blogName || errors.blog_name && <p className='errors'>{errors.blogName || errors.blog_name}</p>}
           </div>
         </div>
         <div className='signup-containers'>
@@ -94,7 +94,7 @@ function SignupFormModal() {
             onChange={(e) => setPassword(e.target.value)}
             className='signup-inputs'
           />
-          <div className="floating-placeholders" style={ password ? { top: "-10.5px" } : null }>
+          <div className="floating-placeholders" style={ password ? { top: "-18px" } : null }>
             <label>Password</label>
           </div>
           <div className='signup-errors-container'>
@@ -108,7 +108,7 @@ function SignupFormModal() {
             onChange={(e) => setConfirmPassword(e.target.value)}
             className='signup-inputs'
           />
-          <div className="floating-placeholders" style={ confirmPassword ? { top: "-10.5px" } : null }>
+          <div className="floating-placeholders" style={ confirmPassword ? { top: "-18px" } : null }>
             <label>Confirm Password</label>
           </div>
           <div className='signup-errors-container'>

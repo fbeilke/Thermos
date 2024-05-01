@@ -10,10 +10,11 @@ export default function UserPage() {
     const { blogName } = useParams();
     const { singleUser } = useSelector(state => state.users)
     const { posts } = useSelector(state => state.posts)
+    const { reblogs } = useSelector(state => state.reblogs)
 
     useEffect(() => {
         dispatch(getSingleUserThunk(blogName))
-    }, [dispatch, blogName, posts])
+    }, [dispatch, blogName, posts, reblogs])
 
     if (!singleUser) return null;
 

@@ -35,7 +35,7 @@ export default function EditPostModal ({ post }) {
         e.preventDefault();
 
         const validators = {};
-        if (title.length > 255) validators.title = "Title cannot be over 255 characters"
+        if (title && title.length > 255) validators.title = "Title cannot be over 255 characters"
         if (!content.length) validators.content = "Content is required to make a new post"
 
         if (Object.keys(validators).length === 0) {
@@ -44,7 +44,8 @@ export default function EditPostModal ({ post }) {
                 title,
                 content,
                 caption,
-                post_type: post.postType
+                post_type: post.postType,
+                previous_post_id: post.previousPostId
             }
 
             const response = await dispatch(updatePostThunk(updated_post))
@@ -113,20 +114,22 @@ export default function EditPostModal ({ post }) {
         <div className='edit-post-modal'>
             <h1 className='edit-post-label'>Edit post</h1>
             <form onSubmit={handleSubmit} className='edit-post-form'>
-                <div className='edit-post-input-containers'>
-                    <input
-                        type='text'
-                        value={title}
-                        onChange={(e) => setTitle(e.target.value)}
-                        className='edit-post-inputs'
-                    />
-                    <div className="floating-placeholders" style={ title ? { top: "-18px" } : null }>
-                        <label>Post Title (optional)</label>
+                {post.previousPostId ? null :
+                    <div className='edit-post-input-containers'>
+                        <input
+                            type='text'
+                            value={title}
+                            onChange={(e) => setTitle(e.target.value)}
+                            className='edit-post-inputs'
+                        />
+                        <div className="floating-placeholders" style={ title ? { top: "-18px" } : null }>
+                            <label>Post Title (optional)</label>
+                        </div>
+                        <div className='edit-post-error-container'>
+                            {errors.title && <p className='errors'>{errors.title}</p>}
+                        </div>
                     </div>
-                    <div className='edit-post-error-container'>
-                        {errors.title && <p className='errors'>{errors.title}</p>}
-                    </div>
-                </div>
+                }
                 <div className='edit-content-preview'>
                     {post.postType !== 'text' ? null :
                     <div className='edit-text-content'>

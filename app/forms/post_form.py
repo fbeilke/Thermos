@@ -9,8 +9,7 @@ class PostForm(FlaskForm):
     content = StringField('Content', validators=[InputRequired(message='Content is required to make a new post')])
     caption = StringField('Caption', validators=[Optional()])
     tags = StringField('Tags', validators=[Optional(), Length(max=1000, message='Tag can be a maximum of 1000 characters long')])
-    post_type = StringField('Post Type', validators=[AnyOf(['text', 'photo', 'video', 'audio'], message='Post must be text, photo, video, or audio')] )
-    previous_post_id = IntegerField('Previous Post id', validators=[Optional()])
+    post_type = StringField('Post Type', validators=[AnyOf(['text', 'photo', 'video', 'audio'], message='Post must be text, photo, video, or audio')])
 
 
 class PostFileForm(FlaskForm):

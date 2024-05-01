@@ -2,15 +2,22 @@ import { useModal } from "../../context/Modal";
 import { useDispatch } from "react-redux";
 import { deletePostThunk } from "../../redux/posts";
 import './DeletePost.css';
+import { deleteReblogThunk } from "../../redux/reblogs";
 
-export default function DeletePostModal({postId}) {
+export default function DeletePostModal({postId, reblog}) {
     const dispatch = useDispatch();
     const { closeModal } = useModal();
 
     async function handleDelete(e) {
         e.preventDefault();
 
-        const response = await dispatch(deletePostThunk(postId))
+        let response;
+
+        if (reblog) {
+            response = await dispatch(deleteReblogThunk(postId))
+        } else {
+            response = await dispatch(deletePostThunk(postId))
+        }
 
         if (response) {
             return response
