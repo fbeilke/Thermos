@@ -1,0 +1,28 @@
+.create-text-reblog {
+    height: 600px;
+    overflow-y: scroll;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.create-text-reblog-input-containers {
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid #8a6240;
+    padding-top: 30px;
+    margin-top: 15px;
+}
+
+.create-text-reblog-input-textarea {
+    width: 500px;
+    height: 100px;
+    margin-bottom: 30px;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}

@@ -31,7 +31,8 @@ def create_post():
             caption=form.data['caption'],
             user_id=current_user.id,
             tags=form.data['tags'],
-            post_type=form.data['post_type']
+            post_type=form.data['post_type'],
+            previous_post_id=form.data['previous_post_id']
             )
 
         db.session.add(post)

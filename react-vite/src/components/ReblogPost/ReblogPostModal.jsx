@@ -1,19 +1,26 @@
 import { useDispatch } from 'react-redux';
 import { IoText, IoCamera, IoVideocam, IoVolumeMedium } from "react-icons/io5";
 import { useModal } from "../../context/Modal";
-import CreateTextPostModal from "../CreatePost/CreateTextPostModal";
-import CreatePhotoPostModal from "../CreatePost/CreatePhotoPostModal";
-import CreateVideoPostModal from "../CreatePost/CreateVideoPostModal";
-import CreateAudioPostModal from "../CreatePost/CreateAudioPostModal";
 import { reblogAsIsThunk } from '../../redux/reblogs';
 import './ReblogPost.css';
+import CreateTextReblog from './CreateTextReblog';
+import CreatePhotoReblog from './CreatePhotoReblog';
 
 export default function ReblogPostModal({ post }) {
     const dispatch = useDispatch();
-    const { setModalContent } = useModal();
+    const { setModalContent, closeModal } = useModal();
 
-    function handleAsIsReblog() {
-        dispatch(reblogAsIsThunk(post))
+    async function handleAsIsReblog(e) {
+        e.preventDefault();
+
+       const response = await dispatch(reblogAsIsThunk(post));
+
+       if (response) {
+            alert("There was an error")
+       } else {
+            closeModal();
+       }
+
     }
 
     return (
@@ -22,19 +29,19 @@ export default function ReblogPostModal({ post }) {
             <p>or</p>
             <div className='create-post-buttons-container-in-reblog-modal'>
             <p className='create-post-label'>Add your own content:</p>
-            <div className='create-post-buttons' onClick={() => setModalContent(<CreateTextPostModal />)}>
+            <div className='create-post-buttons' onClick={() => setModalContent(<CreateTextReblog post={post} />)}>
                 <p className='create-post-icons'>{<IoText />}</p>
                 <p className='create-post-buttons-text'>Text</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent(<CreatePhotoPostModal />)}>
+            <div className='create-post-buttons' onClick={() => setModalContent(<CreatePhotoReblog post={post} />)}>
                 <p className='create-post-icons'>{<IoCamera />}</p>
                 <p className='create-post-buttons-text'>Photo</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent(<CreateVideoPostModal />)}>
+            <div className='create-post-buttons' onClick={() => setModalContent()}>
                 <p className='create-post-icons'>{<IoVideocam />}</p>
                 <p className='create-post-buttons-text'>Video</p>
             </div>
-            <div className='create-post-buttons' onClick={() => setModalContent(<CreateAudioPostModal />)}>
+            <div className='create-post-buttons' onClick={() => setModalContent()}>
                 <p className='create-post-icons'>{<IoVolumeMedium />}</p>
                 <p className='create-post-buttons-text'>Audio</p>
             </div>

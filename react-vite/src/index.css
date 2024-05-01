@@ -15,6 +15,7 @@ html {
     background-color: #caba9c;
     border-radius: 25px;
     z-index: 1;
+    overflow-y: initial;
 }
 
 button {

@@ -1,11 +1,19 @@
 import ReactPlayer from "react-player";
 import './Post.css'
 
-export default function Post({ postId, allPosts }) {
+export default function Post({ postId, allPosts, actualPost }) {
 
-    if (!allPosts || !postId) return null;
 
-    const post = allPosts[postId]
+
+    let post;
+
+    if (allPosts && postId) {
+        post = allPosts[postId]
+    } else if (actualPost) {
+        post = actualPost
+    } else if ((!allPosts || !postId) && !actualPost) {
+        return null
+    }
 
 
 
@@ -14,7 +22,7 @@ export default function Post({ postId, allPosts }) {
 
     return (
         <div className='each-post-container'>
-            {allPosts[postId].reblogCreator ?
+            {post.reblogCreator ?
                 <div className='reblogged-post-container'>
                     <p className='post-creator'>{post.originalPost.creator} posted</p>
                     {post.originalPost.title && <h3>{post.originalPost.title}</h3>}
