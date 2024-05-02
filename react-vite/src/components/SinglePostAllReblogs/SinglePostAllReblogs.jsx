@@ -28,18 +28,39 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
 
 
     while (currPost) {
+
         allLinkedPosts.push(currPost)
+
         if (allPosts[currPost]) {
-            currPost = allPosts[currPost].previousPostId
+
+            if (allPosts[currPost].previousPostId) {
+
+                currPost = allPosts[currPost].previousPostId
+
+            } else if (allPosts[currPost].reblogCreator && allPosts[currPost].postId) {
+
+                currPost = allPosts[currPost].postId
+
+            } else if (allPosts[currPost].reblogCreator && allPosts[currPost].reblogId) {
+
+                currPost = allPosts[currPost].reblogId
+
+            } else {
+
+                currPost = null
+
+            }
+
         } else {
-            currPost = null;
+
+            currPost = null
+
         }
     }
 
+
+
     if (!allPosts[mainPostId]) return null;
-
-    console.log('============', allPosts[mainPostId])
-
 
 
     return (
@@ -65,14 +86,18 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
                 }
             </div>
             {allLinkedPosts.map(postID => (
-                <Post postId={postID} allPosts={allPosts} key={postID}/>
+                <div key={postID}>
+                    {!allPosts[postID] ? null :
+                        <Post postId={postID} allPosts={allPosts}/>
+                    }
+                </div>
             ))}
 
             {allPosts[mainPostId].reblogCreator ?
                 <p className='reblogged-label'>
                     <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].reblogCreator}`}>{allPosts[mainPostId].reblogCreator}</Link> reblogged from <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].rebloggedFrom}`}>{allPosts[mainPostId].rebloggedFrom}</Link></p>
             : null }
-            {allPosts[mainPostId].previousPostId ?
+            {allPosts[mainPostId].previousPostId && allPosts[allPosts[mainPostId].previousPostId]?
                 <p className='reblogged-label'>
                     <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].creator}`}>{allPosts[mainPostId].creator}</Link> reblogged from <Link className='blog-links' to={`/blogs/${allPosts[allPosts[mainPostId].previousPostId].creator}`}>{allPosts[allPosts[mainPostId].previousPostId].creator}</Link></p>
             : null }

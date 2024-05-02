@@ -483,13 +483,33 @@ def seed_posts():
         post_type='text',
         previous_post_id=24
     )
+    post_49 = Post(
+        title=None,
+        content=None,
+        caption=None,
+        user_id=4,
+        likes=0,
+        tags=None,
+        post_type='text',
+        previous_post_id=15
+    )
+    post_50 = Post(
+        title=None,
+        content=None,
+        caption=None,
+        user_id=4,
+        likes=0,
+        tags=None,
+        post_type='text',
+        previous_post_id=39
+    )
 
 
     posts_to_seed = [post_1, post_2, post_3, post_4, post_5, post_6, post_7, post_8, post_9, post_10,
         post_11, post_12, post_13, post_14, post_15, post_16, post_17, post_18, post_19, post_20,
         post_21, post_22, post_23, post_24, post_25, post_26, post_27, post_28, post_29, post_30,
         post_31, post_32, post_33, post_34, post_35, post_36, post_37, post_38, post_39, post_40,
-        post_41, post_42, post_43, post_44, post_45, post_46, post_47, post_48]
+        post_41, post_42, post_43, post_44, post_45, post_46, post_47, post_48, post_49, post_50]
 
     for post in posts_to_seed:
         db.session.add(post)

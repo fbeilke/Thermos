@@ -127,10 +127,10 @@ function SignupFormModal() {
               className='add-image-signup-input'
             />
           </label>
-        </div>
           <div className='image-signup-errors-container'>
             {errors.image && <p className='errors'>{errors.image}</p>}
           </div>
+        </div>
         <button className='signup-button' type="submit">Sign Up</button>
         <div className='image-loading-message-container'>
           {imageLoading && <p>Loading...</p>}

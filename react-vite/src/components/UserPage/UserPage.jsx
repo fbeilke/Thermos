@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getSingleUserThunk } from "../../redux/users";
+import { getSingleUserThunk, clearSingleUser } from "../../redux/users";
 import PostsFeed from "../PostsFeed/PostsFeed";
 import './UserPage.css';
 
@@ -16,6 +16,10 @@ export default function UserPage() {
         dispatch(getSingleUserThunk(blogName))
 
     }, [dispatch, blogName, posts, reblogs])
+
+    useEffect(() => () => {
+        dispatch(clearSingleUser())
+    }, [dispatch])
 
     if (!singleUser) return null;
 

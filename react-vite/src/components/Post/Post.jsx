@@ -5,7 +5,6 @@ import './Post.css'
 export default function Post({ postId, allPosts, actualPost }) {
 
 
-
     let post;
 
     if (allPosts && postId) {
@@ -91,7 +90,9 @@ export default function Post({ postId, allPosts, actualPost }) {
             : null }
             {!post.reblogCreator ?
                 <div className='original-post-container'>
-                    <p className='post-creator'><Link className='blog-links' to={`/blogs/${post.creator}`}>{post.creator}</Link> posted</p>
+                    {!post.content ? null :
+                        <p className='post-creator'><Link className='blog-links' to={`/blogs/${post.creator}`}>{post.creator}</Link> posted</p>
+                    }
                     {post.title && <h3>{post.title}</h3>}
                     <div className='post-content'>
                         {post.postType !== 'text' ? null :

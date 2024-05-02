@@ -19,6 +19,7 @@ export default function PostsFeed({ posts, blogName }) {
 
     if (!posts.length || !allPosts || !allReblogs) return null
 
+
     return (
         <div className='posts-feed-container'>
             {posts.map(post => (
@@ -29,9 +30,7 @@ export default function PostsFeed({ posts, blogName }) {
                                 <img className='post-profile-picture' src={post.creatorImage} alt={post.creator} />
                             </Link>
                         }
-                        {post.reblogCreator ?
-                            <SinglePost mainPostId={post.id} allPosts={allReblogs} user={user} />
-                        :
+                        {post.previousPostId && !allPosts[post.previousPostId] ? null :
                             <SinglePost mainPostId={post.id} allPosts={allPosts} user={user}/>
                         }
                     </div>

@@ -9,7 +9,7 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
-    content = db.Column(db.String, nullable=False)
+    content = db.Column(db.String)
     caption = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     likes = db.Column(db.Integer, default=0)
