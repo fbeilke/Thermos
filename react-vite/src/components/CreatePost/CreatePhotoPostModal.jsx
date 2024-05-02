@@ -22,8 +22,8 @@ export default function CreatePhotoPostModal() {
         const validators = {};
         if (title.length > 255) validators.title = "Title cannot be over 255 characters"
         if (!content.length) validators.content = "Content is required to make a new post"
-        if (!content.includes('http://') && !content.includes('https://')) validators.content = "Image url must begin with http:// or https://"
-        if (!content.endsWith('pdf') &&
+        if (content && !content.includes('http://') && !content.includes('https://')) validators.content = "Image url must begin with http:// or https://"
+        if (content && !content.endsWith('pdf') &&
             !content.endsWith('gif') &&
             !content.endsWith('png') &&
             !content.endsWith('jpg') &&

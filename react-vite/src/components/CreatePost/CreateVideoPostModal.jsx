@@ -23,7 +23,7 @@ export default function CreateVideoPostModal() {
         const validators = {};
         if (title.length > 255) validators.title = "Title cannot be over 255 characters"
         if (!content.length) validators.content = "Content is required to make a new post"
-        if (!content.startsWith('http://') && !content.startsWith('https://')) validators.content = "Video url must begin with http:// or https://"
+        if (content && !content.startsWith('http://') && !content.startsWith('https://')) validators.content = "Video url must begin with http:// or https://"
 
 
 
