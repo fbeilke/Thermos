@@ -14,6 +14,7 @@ export default function UserPage() {
 
     useEffect(() => {
         dispatch(getSingleUserThunk(blogName))
+
     }, [dispatch, blogName, posts, reblogs])
 
     if (!singleUser) return null;

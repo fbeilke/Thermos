@@ -48,6 +48,7 @@ def upgrade():
     sa.Column('created_at', sa.DateTime()),
     sa.Column('updated_at', sa.DateTime()),
     sa.ForeignKeyConstraint(['user_id'], ['users.id']),
+    sa.ForeignKeyConstraint(['previous_post_id'], ['posts.id'], ondelete='CASCADE', ),
     sa.PrimaryKeyConstraint('id')
     )
 

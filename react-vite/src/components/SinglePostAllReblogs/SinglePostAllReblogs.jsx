@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useModal } from "../../context/Modal";
@@ -10,6 +11,7 @@ import ReblogPostModal from "../ReblogPost/ReblogPostModal";
 export default function SinglePost({ mainPostId, allPosts, user }) {
     const { setModalContent } = useModal();
 
+
     if (!allPosts || !mainPostId) return null;
 
     async function handleDelete(e, postID, reblog) {
@@ -18,6 +20,8 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
         setModalContent(<DeletePostModal postId={postID} reblog={reblog}/>)
 
     }
+
+
 
     let currPost = mainPostId
     const allLinkedPosts = [];
@@ -33,6 +37,9 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
     }
 
     if (!allPosts[mainPostId]) return null;
+
+    console.log('============', allPosts[mainPostId])
+
 
 
     return (
@@ -62,10 +69,12 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
             ))}
 
             {allPosts[mainPostId].reblogCreator ?
-                <p className='reblogged-label'>{allPosts[mainPostId].reblogCreator} reblogged from {allPosts[mainPostId].rebloggedFrom}</p>
+                <p className='reblogged-label'>
+                    <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].reblogCreator}`}>{allPosts[mainPostId].reblogCreator}</Link> reblogged from <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].rebloggedFrom}`}>{allPosts[mainPostId].rebloggedFrom}</Link></p>
             : null }
             {allPosts[mainPostId].previousPostId ?
-                <p className='reblogged-label'>{allPosts[mainPostId].creator} reblogged from {allPosts[allPosts[mainPostId].previousPostId].creator}</p>
+                <p className='reblogged-label'>
+                    <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].creator}`}>{allPosts[mainPostId].creator}</Link> reblogged from <Link className='blog-links' to={`/blogs/${allPosts[allPosts[mainPostId].previousPostId].creator}`}>{allPosts[allPosts[mainPostId].previousPostId].creator}</Link></p>
             : null }
         </div>
     )

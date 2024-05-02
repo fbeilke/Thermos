@@ -24,6 +24,7 @@ function SignupFormModal() {
     if (!blogName.length) validators.blogName = "Blog name is required"
     if (blogName.length > 100) validators.blogName = "Blog name can be maximum of 100 characters long"
     if (!password.length) validators.password = "Password is required"
+    if (password.length < 8) validators.password = "Password is required to be at least 8 characters long"
     if (!confirmPassword.length) validators.confirmPassword = "Password confirmation is required"
     if (password !== confirmPassword) validators.confirmPassword = "Confirm Password field must be the same as the Password field"
     if (!image) validators.image = "A profile picture is required"
@@ -69,10 +70,10 @@ function SignupFormModal() {
           <div className="floating-placeholders" style={ email ? { top: "-18px" } : null }>
             <label>Email</label>
           </div>
+        </div>
           <div className='signup-errors-container'>
             {errors.email && <p className='errors'>{errors.email}</p>}
           </div>
-        </div>
         <div className='signup-containers'>
           <input
             type="text"
@@ -83,10 +84,10 @@ function SignupFormModal() {
           <div className="floating-placeholders" style={ blogName ? { top: "-18px" } : null }>
             <label>Blog Name</label>
           </div>
-          <div className='signup-errors-container'>
-            {errors.blogName || errors.blog_name && <p className='errors'>{errors.blogName || errors.blog_name}</p>}
-          </div>
         </div>
+          <div className='signup-errors-container'>
+            {(errors.blogName || errors.blog_name) && <p className='errors'>{errors.blogName || errors.blog_name}</p>}
+          </div>
         <div className='signup-containers'>
           <input
             type="password"
@@ -97,10 +98,10 @@ function SignupFormModal() {
           <div className="floating-placeholders" style={ password ? { top: "-18px" } : null }>
             <label>Password</label>
           </div>
+        </div>
           <div className='signup-errors-container'>
             {errors.password && <p className='errors'>{errors.password}</p>}
           </div>
-        </div>
         <div className='signup-containers'>
           <input
             type="password"
@@ -111,10 +112,10 @@ function SignupFormModal() {
           <div className="floating-placeholders" style={ confirmPassword ? { top: "-18px" } : null }>
             <label>Confirm Password</label>
           </div>
+        </div>
           <div className='signup-errors-container'>
             {errors.confirmPassword && <p className='errors'>{errors.confirmPassword}</p>}
           </div>
-        </div>
         <div className='add-image-signup-container'>
           <label className='add-image-signup-label'>
             <p className='hacky-gap'/>
@@ -126,10 +127,10 @@ function SignupFormModal() {
               className='add-image-signup-input'
             />
           </label>
+        </div>
           <div className='image-signup-errors-container'>
             {errors.image && <p className='errors'>{errors.image}</p>}
           </div>
-        </div>
         <button className='signup-button' type="submit">Sign Up</button>
         <div className='image-loading-message-container'>
           {imageLoading && <p>Loading...</p>}

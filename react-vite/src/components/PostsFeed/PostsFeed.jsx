@@ -19,7 +19,6 @@ export default function PostsFeed({ posts, blogName }) {
 
     if (!posts.length || !allPosts || !allReblogs) return null
 
-
     return (
         <div className='posts-feed-container'>
             {posts.map(post => (

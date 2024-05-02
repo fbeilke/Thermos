@@ -44,8 +44,11 @@ export default function EditPostModal ({ post }) {
                 title,
                 content,
                 caption,
-                post_type: post.postType,
-                previous_post_id: post.previousPostId
+                post_type: post.postType
+            }
+
+            if (post.previousPostId) {
+                updated_post.previous_post_id = post.previousPostId
             }
 
             const response = await dispatch(updatePostThunk(updated_post))
@@ -188,12 +191,28 @@ export default function EditPostModal ({ post }) {
                             </div>
                         </div>
                     }
-                    {(!upload || fileAccepted) || post.postType === 'text'  ? null :
+                    {(!upload || fileAccepted) || post.postType !== 'photo'  ? null :
                         <input
                             type='file'
-                            accept="image/*, video/*, video/mp4, audio/mp3, audio/mp4"
+                            accept="image/*"
                             onChange={(e) => fileSubmit(e.target.files[0])}
-                            className='create-photo-file-input'
+                            className='edit-photo-file-input'
+                        />
+                    }
+                    {(!upload || fileAccepted) || post.postType !== 'video' ? null :
+                        <input
+                            type='file'
+                            accept="video/*, video/mp4"
+                            onChange={(e) => fileSubmit(e.target.files[0])}
+                            className='edit-video-file-input'
+                        />
+                    }
+                    {(!upload || fileAccepted) || post.postType !== 'audio' ? null :
+                        <input
+                            type='file'
+                            accept='audio/mp3,audio/mp4'
+                            onChange={(e) => fileSubmit(e.target.files[0])}
+                            className='edit-audio-file-input'
                         />
                     }
                     <div className='edit-post-error-container'>

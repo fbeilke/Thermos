@@ -135,7 +135,7 @@ export default function CreateAudioPostModal() {
                         className='create-audio-input-textarea'
                     />
                     <div className="floating-placeholders" style={ caption ? { top: "-18px" } : null }>
-                        <label>Photo Caption (optional)</label>
+                        <label>Audio Caption (optional)</label>
                     </div>
                 </div>
                 <button className='create-audio-post-button' type='submit'>Create post</button>
