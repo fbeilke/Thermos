@@ -3,6 +3,7 @@ import Layout from './Layout';
 import UserPage from '../components/UserPage/UserPage'
 import ExplorePage from '../components/ExplorePage/ExplorePage'
 import HomeFeed from '../components/HomeFeed/HomeFeed';
+import AboutPage from '../components/AboutPage/AboutPage';
 
 
 export const router = createBrowserRouter([
@@ -32,6 +33,10 @@ export const router = createBrowserRouter([
       {
         path: "/explore",
         element: <ExplorePage />
+      },
+      {
+        path: "/about",
+        element: <AboutPage />
       }
     ],
   },

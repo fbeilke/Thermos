@@ -22,6 +22,14 @@ export default function CreatePhotoPostModal() {
         const validators = {};
         if (title.length > 255) validators.title = "Title cannot be over 255 characters"
         if (!content.length) validators.content = "Content is required to make a new post"
+        if (!content.includes('http://') && !content.includes('https://')) validators.content = "Image url must begin with http:// or https://"
+        if (!content.endsWith('pdf') &&
+            !content.endsWith('gif') &&
+            !content.endsWith('png') &&
+            !content.endsWith('jpg') &&
+            !content.endsWith('jpeg') &&
+            !content.endsWith('webp') &&
+            !content.endsWith('avif')) validators.content = "Photo must be file type pdf, gif, png, jpg, jpeg, webp, or avif"
 
         if (Object.keys(validators).length === 0) {
             const new_post = {

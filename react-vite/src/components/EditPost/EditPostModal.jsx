@@ -37,6 +37,19 @@ export default function EditPostModal ({ post }) {
         const validators = {};
         if (title && title.length > 255) validators.title = "Title cannot be over 255 characters"
         if (!content.length) validators.content = "Content is required to make a new post"
+        if (post.postType === 'video' || post.postType === 'photo') {
+            if (!content.includes('http://') && !content.includes('https://')) validators.content = "Image url must begin with http:// or https://"
+        }
+
+        if (post.postType === 'photo') {
+            if (!content.endsWith('pdf') &&
+            !content.endsWith('gif') &&
+            !content.endsWith('png') &&
+            !content.endsWith('jpg') &&
+            !content.endsWith('jpeg') &&
+            !content.endsWith('webp') &&
+            !content.endsWith('avif')) validators.content = "Photo must be file type pdf, gif, png, jpg, jpeg, webp, or avif"
+        }
 
         if (Object.keys(validators).length === 0) {
             const updated_post = {
@@ -161,7 +174,6 @@ export default function EditPostModal ({ post }) {
                             <audio src={content} controls={true} className='edit-audio-preview'>Your browser does not support the audio player</audio>
                         </div>
                     : null }
-                    {!isLoading ? null : <p>Loading...</p> }
                     {fileAccepted && post.postType !== 'text' ?
                         <div className='edit-post-file-accepted-container'>
                             <span>File accepted!</span>
@@ -178,6 +190,7 @@ export default function EditPostModal ({ post }) {
                             </button>
                         </div>
                     : null }
+                    {!isLoading ? null : <p>Loading...</p> }
                     {(!link || fileAccepted) || post.postType === 'text' ? null :
                         <div className='edit-post-input-containers'>
                             <input

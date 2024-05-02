@@ -60,6 +60,7 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
 
 
 
+
     if (!allPosts[mainPostId]) return null;
 
 
