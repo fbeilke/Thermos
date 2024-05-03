@@ -24,7 +24,8 @@ def upgrade():
     op.create_table('reblogs',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('user_id', sa.Integer(), nullable=False),
-    sa.Column('post_id', sa.Integer(), nullable=False),
+    sa.Column('post_id', sa.Integer()),
+    sa.Column('reblog_id', sa.Integer()),
     sa.Column('comment_content', sa.String(), nullable=True),
     sa.Column('caption', sa.String(), nullable=True),
     sa.Column('tags', sa.String(length=1000), nullable=True),
@@ -32,9 +33,10 @@ def upgrade():
     sa.Column('reblogged_from_id', sa.Integer(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=True),
     sa.Column('updated_at', sa.DateTime(), nullable=True),
-    sa.ForeignKeyConstraint(['post_id'], ['posts.id'], ),
+    sa.ForeignKeyConstraint(['post_id'], ['posts.id'], ondelete='CASCADE', ),
     sa.ForeignKeyConstraint(['reblogged_from_id'], ['users.id'], ),
     sa.ForeignKeyConstraint(['user_id'], ['users.id'], ),
+    sa.ForeignKeyConstraint(['reblog_id'], ['reblogs.id'], ondelete='CASCADE', ),
     sa.PrimaryKeyConstraint('id')
     )
 

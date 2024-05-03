@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
 import { useModal } from "../../context/Modal";
@@ -10,6 +11,7 @@ import ReblogPostModal from "../ReblogPost/ReblogPostModal";
 export default function SinglePost({ mainPostId, allPosts, user }) {
     const { setModalContent } = useModal();
 
+
     if (!allPosts || !mainPostId) return null;
 
     async function handleDelete(e, postID, reblog) {
@@ -19,18 +21,45 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
 
     }
 
+
+
     let currPost = mainPostId
     const allLinkedPosts = [];
 
 
     while (currPost) {
+
         allLinkedPosts.push(currPost)
+
         if (allPosts[currPost]) {
-            currPost = allPosts[currPost].previousPostId
+
+            if (allPosts[currPost].previousPostId) {
+
+                currPost = allPosts[currPost].previousPostId
+
+            } else if (allPosts[currPost].reblogCreator && allPosts[currPost].postId) {
+
+                currPost = allPosts[currPost].postId
+
+            } else if (allPosts[currPost].reblogCreator && allPosts[currPost].reblogId) {
+
+                currPost = allPosts[currPost].reblogId
+
+            } else {
+
+                currPost = null
+
+            }
+
         } else {
-            currPost = null;
+
+            currPost = null
+
         }
     }
+
+
+
 
     if (!allPosts[mainPostId]) return null;
 
@@ -58,14 +87,20 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
                 }
             </div>
             {allLinkedPosts.map(postID => (
-                <Post postId={postID} allPosts={allPosts} key={postID}/>
+                <div key={postID}>
+                    {!allPosts[postID] ? null :
+                        <Post postId={postID} allPosts={allPosts}/>
+                    }
+                </div>
             ))}
 
             {allPosts[mainPostId].reblogCreator ?
-                <p className='reblogged-label'>{allPosts[mainPostId].reblogCreator} reblogged from {allPosts[mainPostId].rebloggedFrom}</p>
+                <p className='reblogged-label'>
+                    <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].reblogCreator}`}>{allPosts[mainPostId].reblogCreator}</Link> reblogged from <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].rebloggedFrom}`}>{allPosts[mainPostId].rebloggedFrom}</Link></p>
             : null }
-            {allPosts[mainPostId].previousPostId ?
-                <p className='reblogged-label'>{allPosts[mainPostId].creator} reblogged from {allPosts[allPosts[mainPostId].previousPostId].creator}</p>
+            {allPosts[mainPostId].previousPostId && allPosts[allPosts[mainPostId].previousPostId]?
+                <p className='reblogged-label'>
+                    <Link className='blog-links' to={`/blogs/${allPosts[mainPostId].creator}`}>{allPosts[mainPostId].creator}</Link> reblogged from <Link className='blog-links' to={`/blogs/${allPosts[allPosts[mainPostId].previousPostId].creator}`}>{allPosts[allPosts[mainPostId].previousPostId].creator}</Link></p>
             : null }
         </div>
     )

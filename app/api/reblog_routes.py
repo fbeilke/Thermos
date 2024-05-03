@@ -19,15 +19,32 @@ def reblog_as_is():
 
     post = request.json
 
-    new_reblog = Reblog(
-        user_id=current_user.id,
-        post_id=post["id"],
-        comment_content=None,
-        caption=None,
-        tags=None,
-        post_type='text',
-        reblogged_from_id = post["userId"]
-    )
+
+
+    if "reblogCreator" in post:
+        new_reblog = Reblog(
+            user_id=current_user.id,
+            comment_content=None,
+            caption=None,
+            tags=None,
+            post_type='text',
+            reblogged_from_id=post["userId"],
+            post_id=None,
+            reblog_id=post["id"]
+        )
+    else :
+         new_reblog = Reblog(
+            user_id=current_user.id,
+            comment_content=None,
+            caption=None,
+            tags=None,
+            post_type='text',
+            reblogged_from_id=post["userId"],
+            post_id=post["id"],
+            reblog_id=None
+        )
+
+
 
     db.session.add(new_reblog)
     db.session.commit()

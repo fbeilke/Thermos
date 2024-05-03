@@ -11,7 +11,8 @@
     align-items: center;
 }
 
-.edit-post-input-containers {
+.edit-post-input-containers,
+.edit-text-content {
     position: relative;
     margin-bottom: 20px;
 }
@@ -31,9 +32,22 @@
     top: -18px;
 }
 
+.edit-content-preview {
+    height: 250px;
+
+}
+
+.edit-file-content-preview {
+    height: 200px;
+}
+
 .edit-post-textarea {
     width: 500px;
     height: 300px;
+}
+
+.edit-photo-content {
+    height: 100px;
 }
 
 .edit-photo-preview {
@@ -50,7 +64,9 @@
 }
 
 .choose-file-buttons {
-    height: 250px;
+    display: flex;
+    justify-content: center;
+    height: 200px;
 }
 
 .edit-post-file-accepted-container {
@@ -65,4 +81,9 @@
     text-decoration: underline;
     cursor: pointer;
 
+}
+
+.edit-post-button {
+    position: absolute;
+    bottom: 30px;
 }

@@ -1,9 +1,16 @@
 const GET_SINGLE_USER = "usersReducer/GET_SINGLE_USER"
+const CLEAR_SINGLE_USER = "usersReducer/CLEAR_SINGLE_USER"
 
 function getSingleUser(user) {
     return {
         type: GET_SINGLE_USER,
         user
+    }
+}
+
+export function clearSingleUser() {
+    return {
+        type: CLEAR_SINGLE_USER
     }
 }
 
@@ -28,6 +35,9 @@ export default function usersReducer(state = initialState, action) {
     switch(action.type) {
         case GET_SINGLE_USER: {
             return {...state, singleUser: action.user}
+        }
+        case CLEAR_SINGLE_USER: {
+            return {...state, singleUser: null}
         }
         default:
             return state;

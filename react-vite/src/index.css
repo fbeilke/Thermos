@@ -47,6 +47,17 @@ a:hover {
     color: white;
 }
 
+.blog-links {
+    color: #4c6444;
+    text-decoration: none;
+}
+
+.blog-links:hover {
+    color: white;
+    border-radius: 3px;
+    padding: 1px;
+}
+
 @media screen and (max-width: 800px) {
     .main-page {
         display: flex;

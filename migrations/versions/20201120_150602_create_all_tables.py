@@ -38,7 +38,7 @@ def upgrade():
     op.create_table('posts',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('title', sa.String(length=255)),
-    sa.Column('content', sa.String(), nullable=False),
+    sa.Column('content', sa.String()),
     sa.Column('caption', sa.String()),
     sa.Column('user_id', sa.Integer(), nullable=False),
     sa.Column('likes', sa.Integer),
@@ -48,6 +48,7 @@ def upgrade():
     sa.Column('created_at', sa.DateTime()),
     sa.Column('updated_at', sa.DateTime()),
     sa.ForeignKeyConstraint(['user_id'], ['users.id']),
+    sa.ForeignKeyConstraint(['previous_post_id'], ['posts.id'], ondelete='CASCADE', ),
     sa.PrimaryKeyConstraint('id')
     )
 

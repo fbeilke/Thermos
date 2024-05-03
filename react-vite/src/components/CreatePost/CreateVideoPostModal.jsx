@@ -23,6 +23,9 @@ export default function CreateVideoPostModal() {
         const validators = {};
         if (title.length > 255) validators.title = "Title cannot be over 255 characters"
         if (!content.length) validators.content = "Content is required to make a new post"
+        if (content && !content.startsWith('http://') && !content.startsWith('https://')) validators.content = "Video url must begin with http:// or https://"
+
+
 
         if (Object.keys(validators).length === 0) {
             const new_post = {
@@ -160,7 +163,7 @@ export default function CreateVideoPostModal() {
                         className='create-video-input-textarea'
                     />
                     <div className="floating-placeholders" style={ caption ? { top: "-18px" } : null }>
-                        <label>Photo Caption (optional)</label>
+                        <label>Video Caption (optional)</label>
                     </div>
                 </div>
                 <button className='create-video-post-button' type='submit'>Create post</button>

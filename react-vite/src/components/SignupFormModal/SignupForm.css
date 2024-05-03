@@ -14,15 +14,14 @@
 }
 
 .signup-containers {
-    position: relative;
     margin: 10px;
+    position: relative;
 }
 
 .floating-placeholders {
     position: absolute;
     pointer-events: none;
     top: 3px;
-    left: 3px;
 }
 
 .signup-inputs {
@@ -40,8 +39,9 @@
 
 .signup-errors-container {
     min-height: 25px;
+    text-align: center;
     padding: 0;
-    margin: 0;
+    margin-bottom: 10px;
 }
 
 .image-loading-message-container {

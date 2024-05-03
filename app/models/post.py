@@ -9,18 +9,19 @@ class Post(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(255))
-    content = db.Column(db.String, nullable=False)
+    content = db.Column(db.String)
     caption = db.Column(db.String)
     user_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('users.id')), nullable=False)
     likes = db.Column(db.Integer, default=0)
     tags = db.Column(db.String(1000))
     post_type = db.Column(db.String(25), nullable=False)
-    previous_post_id = db.Column(db.Integer)
+    previous_post_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('posts.id'), ondelete='CASCADE'))
     created_at = db.Column(db.DateTime, default=datetime.now())
     updated_at = db.Column(db.DateTime, default=datetime.now(), onupdate=datetime.now())
 
     creator_user = db.relationship("User", back_populates="posts")
-    post_reblogs = db.relationship("Reblog", back_populates="original_post")
+    post_reblogs = db.relationship("Reblog", back_populates="original_post", cascade="all, delete-orphan")
+    previous_post = db.relationship("Post", remote_side=[id])
 
     def to_dict(self):
         return {

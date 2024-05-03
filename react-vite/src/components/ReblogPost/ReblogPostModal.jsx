@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { IoText, IoCamera, IoVideocam, IoVolumeMedium } from "react-icons/io5";
 import { useModal } from "../../context/Modal";
-import { reblogAsIsThunk } from '../../redux/reblogs';
+import { createPostThunk } from '../../redux/posts';
 import './ReblogPost.css';
 import CreateTextReblog from './CreateTextReblog';
 import CreatePhotoReblog from './CreatePhotoReblog';
@@ -15,7 +15,12 @@ export default function ReblogPostModal({ post }) {
     async function handleAsIsReblog(e) {
         e.preventDefault();
 
-       const response = await dispatch(reblogAsIsThunk(post));
+        const new_post = {
+            post_type: 'text',
+            previous_post_id: post.id
+        }
+
+       const response = await dispatch(createPostThunk(new_post));
 
        if (response) {
             alert("There was an error")
