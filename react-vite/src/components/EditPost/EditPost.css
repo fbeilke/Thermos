@@ -37,6 +37,10 @@
 
 }
 
+.edit-file-content-preview {
+    height: 200px;
+}
+
 .edit-post-textarea {
     width: 500px;
     height: 300px;

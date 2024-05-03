@@ -159,27 +159,31 @@ export default function EditPostModal ({ post }) {
                         </div>
                     </div>
                     }
-                    {post.postType === 'photo' && fileAccepted ?
-                        <div className='edit-photo-content'>
-                            <img className='edit-photo-preview' src={content} alt="Image not loading" />
-                        </div>
-                    : null }
-                    {post.postType === 'video' && fileAccepted ?
-                        <div className='edit-video-content'>
-                            <ReactPlayer url={content} controls={true} height={200} width={500} style={{backgroundColor: 'black'}} className='edit-video-preview' />
-                        </div>
-                    : null }
-                    {post.postType === 'audio' && fileAccepted ?
-                        <div className='edit-audio-content'>
-                            <audio src={content} controls={true} className='edit-audio-preview'>Your browser does not support the audio player</audio>
-                        </div>
-                    : null }
-                    {fileAccepted && post.postType !== 'text' ?
-                        <div className='edit-post-file-accepted-container'>
-                            <span>File accepted!</span>
-                            <span onClick={removeFile} className='remove-file-link'>Remove?</span>
-                        </div>
-                    : null }
+                    <div className='edit-file-content-preview'>
+                        {post.postType === 'photo' && fileAccepted ?
+                            <div className='edit-photo-content'>
+                                <img className='edit-photo-preview' src={content} alt="Image not loading" />
+                            </div>
+                        : null }
+                        {post.postType === 'video' && fileAccepted ?
+                            <div className='edit-video-content'>
+                                <ReactPlayer url={content} controls={true} height={200} width={500} style={{backgroundColor: 'black'}} className='edit-video-preview' />
+                            </div>
+                        : null }
+                        {post.postType === 'audio' && fileAccepted ?
+                            <div className='edit-audio-content'>
+                                <audio src={content} controls={true} className='edit-audio-preview'>Your browser does not support the audio player</audio>
+                            </div>
+                        : null }
+                    </div>
+                    <div>
+                        {fileAccepted && post.postType !== 'text' ?
+                            <div className='edit-post-file-accepted-container'>
+                                <span>File accepted!</span>
+                                <span onClick={removeFile} className='remove-file-link'>Remove?</span>
+                            </div>
+                        : null }
+                    </div>
                     {!fileAccepted && post.postType !== 'text' ?
                         <div className='choose-file-buttons'>
                             <button className='edit-upload-file-button' onClick={chooseUpload}>
