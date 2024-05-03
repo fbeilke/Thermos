@@ -163,7 +163,7 @@ export default function CreateVideoPostModal() {
                         className='create-video-input-textarea'
                     />
                     <div className="floating-placeholders" style={ caption ? { top: "-18px" } : null }>
-                        <label>Photo Caption (optional)</label>
+                        <label>Video Caption (optional)</label>
                     </div>
                 </div>
                 <button className='create-video-post-button' type='submit'>Create post</button>
