@@ -22,8 +22,8 @@ class User(db.Model, UserMixin):
 
     posts = db.relationship("Post", back_populates="creator_user")
     reblogs = db.relationship("Reblog", back_populates="reblog_creator", foreign_keys=[Reblog.user_id])
-    # all_followers = db.relationship("Follow", foreign_keys=[Follow.follower])
-    # all_following = db.relationship("Follow", foreign_keys=[Follow.following])
+    all_followers = db.relationship("Follow", foreign_keys=[Follow.follower])
+    all_following = db.relationship("Follow", foreign_keys=[Follow.following])
 
     @property
     def password(self):
@@ -47,8 +47,8 @@ class User(db.Model, UserMixin):
     def to_dict_plus(self):
         posts_by_user = [post.to_dict() for post in self.posts]
         reblogs_by_user = [reblog.to_dict() for reblog in self.reblogs]
-        followers = [follower_row.follower for follower_row in self.all_followers]
-        following = [following_row.following for following_row in self.all_following]
+        following = [follower_row.following for follower_row in self.all_followers]
+        followers = [following_row.follower for following_row in self.all_following]
 
         return {
             'id': self.id,
@@ -56,7 +56,7 @@ class User(db.Model, UserMixin):
             'email': self.email,
             'profilePictureUrl': self.profile_picture_url,
             'postsByUser': posts_by_user,
-            'reblogsByUser': reblogs_by_user
-            # 'followers': followers,
-            # 'following': following
+            'reblogsByUser': reblogs_by_user,
+            'followers': followers,
+            'following': following
         }

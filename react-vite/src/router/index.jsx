@@ -4,6 +4,7 @@ import UserPage from '../components/UserPage/UserPage'
 import ExplorePage from '../components/ExplorePage/ExplorePage'
 import HomeFeed from '../components/HomeFeed/HomeFeed';
 import AboutPage from '../components/AboutPage/AboutPage';
+import CurrentUserFollowers from '../components/Follows/CurrentUserFollowers';
 
 
 export const router = createBrowserRouter([
@@ -28,7 +29,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/followers",
-        element: <h2>Feature coming soon</h2>
+        element: <CurrentUserFollowers />
       },
       {
         path: "/explore",

@@ -1,5 +1,6 @@
 const GET_SINGLE_USER = "usersReducer/GET_SINGLE_USER"
 const CLEAR_SINGLE_USER = "usersReducer/CLEAR_SINGLE_USER"
+const GET_ALL_USERS = "usersReducer/GET_ALL_USERS"
 
 function getSingleUser(user) {
     return {
@@ -11,6 +12,13 @@ function getSingleUser(user) {
 export function clearSingleUser() {
     return {
         type: CLEAR_SINGLE_USER
+    }
+}
+
+function getAllUsers(users) {
+    return {
+        type: GET_ALL_USERS,
+        users
     }
 }
 
@@ -28,6 +36,18 @@ export const getSingleUserThunk = (blogName) => async (dispatch) => {
     }
 }
 
+export const getAllUsersThunk = () => async (dispatch) => {
+    const response = await fetch('/api/users/')
+
+    if (response.ok) {
+        const data = await response.json();
+        dispatch(getAllUsers(data))
+    } else {
+        const errors = await response.json();
+        return errors;
+    }
+}
+
 
 const initialState = { users: null }
 
@@ -38,6 +58,9 @@ export default function usersReducer(state = initialState, action) {
         }
         case CLEAR_SINGLE_USER: {
             return {...state, singleUser: null}
+        }
+        case GET_ALL_USERS: {
+            return {...state , allUsers: action.users}
         }
         default:
             return state;

@@ -7,14 +7,23 @@
   z-index: 1;
   width: 200px;
   padding: 10px 10px;
+  border-radius: 10px;
+}
+
+.profile-dropdown > li:hover {
+  color: #caba9c;
+  padding-left: 2px;
+  cursor: pointer;
 }
 
 .home-logo-link {
   text-decoration: none;
+  transition: font-size .5s;
 }
 
 .home-logo-link:hover {
   background-color: #41270b;
+  font-size: 17px;
 }
 
 .top-bar {
@@ -56,6 +65,12 @@
   background-color: #41270b;
   border: none;
   width: 50px;
+  transition: font-size .5s;
+}
+
+.profile-button:hover {
+  color: #caba9c;
+  font-size: 52px;
 }
 
 .create-post-buttons-container {

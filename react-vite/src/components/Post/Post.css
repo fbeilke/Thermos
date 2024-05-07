@@ -12,3 +12,8 @@
     font-size: 15px;
     border-bottom: 1px solid #8a6240;
 }
+
+.post-content,
+.post-caption {
+    word-break: break-word;
+}
