@@ -1,10 +1,10 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 import './HomeFeed.css';
 
 
 export default function HomeFeed() {
-    const dispatch = useDispatch();
+    // const dispatch = useDispatch();
     const currentUser = useSelector(state => state.session.user);
 
     if (!currentUser) {
