@@ -29,3 +29,18 @@
     justify-content: center;
     align-items: flex-end;
 }
+
+.follow-user-button,
+.unfollow-user-button {
+    margin: 10px;
+    height: 30px;
+    width: 150px;
+    background-color: #4c6444;
+    color: white;
+}
+
+.follow-user-button:hover,
+.unfollow-user-button:hover {
+    background-color: #102820;
+    cursor: pointer;
+}

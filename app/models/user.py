@@ -37,11 +37,13 @@ class User(db.Model, UserMixin):
         return check_password_hash(self.password, password)
 
     def to_dict(self):
+        following = [follower_row.following for follower_row in self.all_followers]
         return {
             'id': self.id,
             'blogName': self.blog_name,
             'email': self.email,
-            'profilePictureUrl': self.profile_picture_url
+            'profilePictureUrl': self.profile_picture_url,
+            'following': following
         }
 
     def to_dict_plus(self):

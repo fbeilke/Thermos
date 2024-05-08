@@ -63,6 +63,38 @@ export const thunkLogout = () => async (dispatch) => {
   dispatch(removeUser());
 };
 
+export const followBlogThunk = (userId) => async(dispatch) => {
+  try {
+      const response = await fetch(`/api/follows/${userId}`, {
+          method: "POST",
+          headers: {"Content-Type": "application/json"},
+          body: JSON.stringify(userId)
+      })
+
+      if (response.ok) {
+        dispatch(thunkAuthenticate())
+      }
+
+  } catch (err) {
+      alert(err)
+  }
+}
+
+export const unfollowBlogThunk = (userId) => async(dispatch) => {
+  try {
+      const response = await fetch(`/api/follows/${userId}`, {
+          method: "DELETE"
+      })
+
+      if (response.ok) {
+        dispatch(thunkAuthenticate())
+      }
+
+  } catch (err) {
+      alert
+  }
+}
+
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {
