@@ -4,3 +4,4 @@ from .db import environment, SCHEMA
 from .post import Post
 from .reblog import Reblog
 from .follow import Follow
+from .like import Like

@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required, current_user
-from app.models import db, Post
+from app.models import db, Post, Like
 from app.forms import PostForm, PostFileForm
 from .aws import s3_remove_file, s3_upload_file, unique_filename
 
@@ -82,6 +82,16 @@ def remove_file():
     return {"message": "Successfully removed file"}
 
 
+@post_routes.route('/<int:id>/likes', methods=["POST"])
+@login_required
+def like_post(id):
+    new_like = Like(user_id=current_user.id, post_id=id)
+    db.session.add(new_like)
+    db.session.commit()
+
+    return {"message": "Successfully liked post"}
+
+
 @post_routes.route('/<int:id>', methods=["PUT"])
 @login_required
 def update_post(id):
@@ -106,6 +116,17 @@ def update_post(id):
 
 
 
+@post_routes.route('/<int:id>/likes', methods=["DELETE"])
+@login_required
+def unlike_post(id):
+    like_to_delete = Like.query.filter(Like.post_id == id and Like.user_id == current_user.id).first()
+
+    if not like_to_delete:
+        return {"message": "Like was not found"}, 404
+    else:
+        db.session.delete(like_to_delete)
+        db.session.commit()
+        return {"message": "Successfully unliked post"}
 
 
 @post_routes.route('/<int:id>', methods=["DELETE"])

@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { getAllUsersThunk, getSingleUserThunk } from '../../redux/users';
 import './CurrentUserFollowing.css';
@@ -10,11 +10,16 @@ export default function CurrentUserFollowing() {
     const { singleUser, allUsers } = useSelector(state => state.users)
 
     useEffect(() => {
-        dispatch(getSingleUserThunk(currentUser.blogName))
+        if(currentUser) {
+            dispatch(getSingleUserThunk(currentUser.blogName))
+        }
         dispatch(getAllUsersThunk())
     }, [dispatch, currentUser])
 
-    if (!currentUser || !singleUser || !allUsers) return null
+    if (!currentUser) {
+        return <Navigate to='/explore'/>
+    }
+    if (!singleUser || !allUsers) return null
 
     return (
         <div className='current-user-following-page'>

@@ -6,6 +6,7 @@ import HomeFeed from '../components/HomeFeed/HomeFeed';
 import AboutPage from '../components/AboutPage/AboutPage';
 import CurrentUserFollowers from '../components/Follows/CurrentUserFollowers';
 import CurrentUserFollowing from '../components/Follows/CurrentUserFollowing';
+import CurrentUserLikes from '../components/LIkes/CurrentUserLikes';
 
 
 export const router = createBrowserRouter([
@@ -22,7 +23,7 @@ export const router = createBrowserRouter([
       },
       {
         path: "/likes",
-        element: <h2>Feature coming soon</h2>
+        element: <CurrentUserLikes />
       },
       {
         path: "/following",

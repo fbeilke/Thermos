@@ -95,6 +95,28 @@ export const unfollowBlogThunk = (userId) => async(dispatch) => {
   }
 }
 
+export const likePostThunk = (postId) => async(dispatch) => {
+  const response = await fetch(`/api/posts/${postId}/likes`, {
+    method: "POST",
+    headers: {"Content-Type": "application/json"},
+    body: JSON.stringify(postId)
+  })
+
+  if (response.ok) {
+    dispatch(thunkAuthenticate())
+  }
+}
+
+export const unlikePostThunk = (postId) => async(dispatch) => {
+  const response = await fetch(`/api/posts/${postId}/likes`, {
+    method: "DELETE"
+  })
+
+  if (response.ok) {
+    dispatch(thunkAuthenticate())
+  }
+}
+
 const initialState = { user: null };
 
 function sessionReducer(state = initialState, action) {

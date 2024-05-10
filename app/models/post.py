@@ -22,6 +22,7 @@ class Post(db.Model):
     creator_user = db.relationship("User", back_populates="posts")
     post_reblogs = db.relationship("Reblog", back_populates="original_post", cascade="all, delete-orphan")
     previous_post = db.relationship("Post", remote_side=[id])
+    post_likes = db.relationship("Like", back_populates="liked_post")
 
     def to_dict(self):
         return {

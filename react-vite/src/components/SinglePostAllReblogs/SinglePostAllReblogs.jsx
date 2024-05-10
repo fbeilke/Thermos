@@ -1,7 +1,11 @@
 import { Link } from 'react-router-dom';
 import { MdDeleteForever } from "react-icons/md";
 import { FaEdit } from "react-icons/fa";
+import { IoIosHeartEmpty, IoIosHeart } from "react-icons/io";
 import { useModal } from "../../context/Modal";
+import { useDispatch } from 'react-redux';
+import { likePostThunk, unlikePostThunk } from '../../redux/session';
+import { useState } from 'react';
 import DeletePostModal from "../DeletePost/DeletePostModal"
 import EditPostModal from "../EditPost/EditPostModal";
 import Post from "../Post/Post";
@@ -9,7 +13,9 @@ import './SinglePost.css';
 import ReblogPostModal from "../ReblogPost/ReblogPostModal";
 
 export default function SinglePost({ mainPostId, allPosts, user }) {
+    const dispatch = useDispatch();
     const { setModalContent } = useModal();
+    const [likedState, setLikedState] = useState(false)
 
 
     if (!allPosts || !mainPostId) return null;
@@ -19,6 +25,12 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
 
         setModalContent(<DeletePostModal postId={postID} reblog={reblog}/>)
 
+    }
+
+    let liked;
+
+    if (user && user.likedPostsByUser) {
+        liked = user.likedPostsByUser.find(post => post.id === mainPostId)
     }
 
 
@@ -63,6 +75,16 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
 
     if (!allPosts[mainPostId]) return null;
 
+    function likePost() {
+        dispatch(likePostThunk(mainPostId))
+        setLikedState(true)
+    }
+
+    function unlikePost() {
+        dispatch(unlikePostThunk(mainPostId))
+        setLikedState(false)
+    }
+
 
     return (
         <div className='each-single-post'>
@@ -83,6 +105,11 @@ export default function SinglePost({ mainPostId, allPosts, user }) {
                         <button className='post-reblog-button' onClick={() => setModalContent(<ReblogPostModal post={allPosts[mainPostId]} />)}>
                             <img src='https://thermos-project-bucket.s3.us-east-2.amazonaws.com/tumblr-reblog-icon.png' className='reblog-button-icon'/>
                         </button>
+                        {!liked && !likedState?
+                            <button className='like-post-button' onClick={likePost}><IoIosHeartEmpty/></button>
+                        :
+                            <button className='unlike-post-button' onClick={unlikePost}><IoIosHeart/></button>
+                        }
                     </div>
                 }
             </div>

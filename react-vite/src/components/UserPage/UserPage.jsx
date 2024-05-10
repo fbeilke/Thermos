@@ -57,10 +57,10 @@ export default function UserPage() {
         <div className='user-page-outer'>
             <div className='user-page-container'>
                 <div className='follow-unfollow-buttons'>
-                    {currentUser && following ?
+                    {currentUser && following && currentUser.blogName !== blogName ?
                         <button className='unfollow-user-button' onClick={unfollow}>Unfollow</button>
                     : null }
-                    {currentUser && !following ?
+                    {currentUser && !following && currentUser.blogName !== blogName ?
                         <button className='follow-user-button' onClick={addFollow}>Follow</button>
                     : null }
                 </div>
@@ -70,8 +70,13 @@ export default function UserPage() {
                 </div>
             </div>
             <div className='user-page-feed'>
-                {/* sends an array of posts through props */}
-                <PostsFeed posts={sortedPosts} blogName={blogName}/>
+                {!sortedPosts.length ?
+                    <div className='no-user-posts-list'>
+                        <h2>Sorry, it looks like this user has no posts...</h2>
+                    </div>
+                :
+                    <PostsFeed posts={sortedPosts} blogName={blogName}/>
+                }
             </div>
         </div>
     )
