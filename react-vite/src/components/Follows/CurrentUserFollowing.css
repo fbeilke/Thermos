@@ -1,0 +1,39 @@
+.current-user-following-page {
+    color: white;
+}
+
+.following-list {
+    display: flex;
+    flex-direction: column;
+    background-color: #caba9c;
+    border-radius: 25px;
+    width: 500px;
+    padding: 50px;
+    margin: 30px 0px;
+}
+
+.each-following {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    border: 1px solid #8a6240;
+    text-decoration: none;
+    padding: 20px;
+    color: black;
+}
+
+.following-profile-picture {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.following-name {
+    margin: 10px;
+}
+
+.each-following:hover {
+    .following-name {
+        color: white;
+    }
+}

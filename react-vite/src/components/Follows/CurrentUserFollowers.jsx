@@ -14,7 +14,7 @@ export default function CurrentUserFollowers() {
         dispatch(getAllUsersThunk())
     }, [dispatch, currentUser])
 
-    if (!currentUser || !singleUser) return null
+    if (!currentUser || !singleUser || !allUsers) return null
 
     return (
         <div className='current-user-followers-page'>
