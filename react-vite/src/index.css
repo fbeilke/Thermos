@@ -58,7 +58,7 @@ a:hover {
     padding: 1px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 651px) and (max-width: 1000px) {
     .main-page {
         display: flex;
         flex-direction: column-reverse;
@@ -84,16 +84,132 @@ a:hover {
     .sidebar-links-container {
         display: flex;
         flex-direction: row;
+        height: 50px;
+    }
+
+    .account-link,
+    .blog-link {
+        border-bottom: none;
+    }
+
+    .create-post-button {
+        position: relative;
+        top: 0px;
     }
 
     .sidebar-links-container-2 {
+        width: 150px;
+        background-color: black;
+        position: absolute;
+        top: 100px;
+        left: 225px;
+    }
+
+    .sidebar-links-container-3 {
+        width: 150px;
+        background-color: black;
+        position: absolute;
+        left: 225px;
+        top: 230px;
+    }
+}
+
+@media screen and (max-width: 850px) {
+    .name {
+        display: none;
+    }
+
+    .profile-button-container {
+        margin: 10px;
+    }
+
+    .logo-and-name {
+        margin: 10px;
+    }
+
+    .post-profile-picture-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    html,
+    body {
+        padding: 0px;
+        margin: 0px;
+        width: 100%;
+    }
+
+    .create-post-label {
+        display: none;
+    }
+
+    .create-post-buttons-container {
+        width: 60%;
+    }
+
+    .create-post-buttons {
+        width: 24%;
+    }
+
+    .create-post-buttons-text {
+        display: none;
+    }
+
+    .main-page {
         display: flex;
         flex-direction: row;
+        justify-content: flex-end;
+    }
+
+    .page-content,
+    .user-page-container {
+        max-width: 80%;
+        margin: 0;
+    }
+
+    .sidebar-container {
+        height: 100vh;
+        width: 65px;
+        position: sticky;
+        right: 0px;
+        top: 0px;
+        bottom: 0px;
+        box-shadow: none;
+
+    }
+
+    .sidebar-links-container {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        padding: 50px 0px;
     }
 
     .sidebar-links {
-        display: flex;
+        font-size: 12px;
+    }
 
+    .create-post-button {
+        width: 65px;
+        font-size: 12px;
+        height: 100px;
+        position: absolute;
+        bottom: 150px;
+    }
+
+    .each-post {
+        width: 100%;
+    }
+
+    .original-post {
+        width: 100%;
+    }
+
+    .each-single-post {
+        width: 100%;
+        padding: 50px 15px;
     }
 
 

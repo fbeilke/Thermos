@@ -21,7 +21,7 @@ export default function SideBar() {
             <div className='sidebar-links-container'>
                 <Link to='/' className='sidebar-links'>Home</Link>
                 <Link to='/explore' className='sidebar-links'>Explore</Link>
-                <p onClick={() => alert("Feature coming soon!")} className='sidebar-links'>Settings</p>
+                {/* <p onClick={() => alert("Feature coming soon!")} className='sidebar-links'>Settings</p> */}
                 <Link to='/about' className='sidebar-links'>About</Link>
                 <p onClick={!user ? () => setModalContent(<LoginFormModal />) : () => setAccountIsOpen(!accountIsOpen)} className='sidebar-links account-link'>Account {accountIsOpen ? <IoIosArrowUp /> : <IoIosArrowDown />}</p>
 
