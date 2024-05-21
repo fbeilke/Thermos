@@ -17,3 +17,7 @@
 .post-caption {
     word-break: break-word;
 }
+
+.video-post-content {
+    width: 500px;
+}

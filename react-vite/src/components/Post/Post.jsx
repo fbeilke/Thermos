@@ -48,7 +48,7 @@ export default function Post({ postId, allPosts, actualPost }) {
                         }
                         {post.originalPost.postType !== 'video' ? null :
                             <div className='video-post-content'>
-                                <ReactPlayer url={post.originalPost.content} controls={true} width={500} style={{backgroundColor: 'black'}}/>
+                                <ReactPlayer url={post.originalPost.content} controls={true} width='100%' height='100%' style={{backgroundColor: 'black'}}/>
                             </div>
                         }
                     </div>
@@ -79,7 +79,7 @@ export default function Post({ postId, allPosts, actualPost }) {
                         }
                         {post.originalPost.postType !== 'video' ? null :
                             <div className='video-post-content'>
-                                <ReactPlayer url={post.originalPost.content} controls={true} width={500} style={{backgroundColor: 'black'}}/>
+                                <ReactPlayer url={post.originalPost.content} controls={true} width='100%' height='100%' style={{backgroundColor: 'black'}}/>
                             </div>
                         }
                     </div>
@@ -112,7 +112,7 @@ export default function Post({ postId, allPosts, actualPost }) {
                         }
                         {post.postType !== 'video' ? null :
                             <div className='video-post-content'>
-                                <ReactPlayer url={post.content} controls={true} width={500} style={{backgroundColor: 'black'}}/>
+                                <ReactPlayer url={post.content} controls={true} width='100%' style={{backgroundColor: 'black'}}/>
                             </div>
                         }
                     </div>

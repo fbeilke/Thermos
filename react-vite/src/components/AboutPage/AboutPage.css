@@ -5,7 +5,8 @@
 .about-page-content {
     background-color: #caba9c;
     border-radius: 25px;
-    width: 500px;
+    max-width: 500px;
+    width: 1fr;
     padding: 50px;
     margin: 30px 0px;
 }

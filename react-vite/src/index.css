@@ -137,7 +137,7 @@ a:hover {
     body {
         padding: 0px;
         margin: 0px;
-        width: 100%;
+        width: 100vw;
     }
 
     .create-post-label {
@@ -159,12 +159,12 @@ a:hover {
     .main-page {
         display: flex;
         flex-direction: row;
-        justify-content: flex-end;
+        justify-content: space-between;
+        position: relative;
     }
 
-    .page-content,
-    .user-page-container {
-        max-width: 80%;
+    .page-content {
+        max-width: 1fr;
         margin: 0;
     }
 
@@ -209,8 +209,24 @@ a:hover {
 
     .each-single-post {
         width: 100%;
-        padding: 50px 15px;
+        padding: 50px 10px;
+        border-radius: 0;
     }
 
+    .post-photo {
+        width: 100%;
+    }
+
+    .video-post-content {
+        width: 100%;
+    }
+
+    .user-page-container {
+        max-width: 100%;
+    }
+
+    .user-page-info {
+        width: 100%;
+    }
 
 }
