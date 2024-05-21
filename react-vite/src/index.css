@@ -199,6 +199,10 @@ a:hover {
         bottom: 150px;
     }
 
+    .each-post-container {
+        margin: 10px;
+    }
+
     .each-post {
         width: 100%;
     }
@@ -229,4 +233,110 @@ a:hover {
         width: 100%;
     }
 
+    #modal-content {
+        width: 100%;
+        border-radius: 0px;
+        padding: 20px;
+    }
+
+}
+
+@media screen and (max-width: 550px) {
+    .create-audio-reblog-input-textarea {
+        width: 100%
+    }
+
+    .create-photo-reblog-input-textarea {
+        width: 100%
+    }
+
+    .create-text-reblog-input-textarea {
+        width: 100%
+    }
+
+    .create-video-reblog-input-textarea {
+        width: 100%
+    }
+
+    .create-photo-reblog-content-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose-photo-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .create-video-reblog-content-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .choose-video-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .edit-post-inputs {
+        width: 100%;
+    }
+
+    .edit-post-textarea {
+        width: 100%;
+    }
+
+    .edit-caption-textarea {
+        width: 100%;
+    }
+
+    .edit-file-content-preview {
+        height: 50px;
+    }
+
+    .edit-post-file-accepted-container {
+        margin: 150px 0;
+    }
+
+    .choose-file-buttons {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .create-post-buttons-container-in-modal {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .create-audio-inputs {
+        width: 100%;
+    }
+
+    .create-audio-input-textarea {
+        width: 100%;
+    }
+
+    .create-video-inputs {
+        width: 100%;
+    }
+
+    .create-video-input-textarea {
+        width: 100%;
+    }
+
+    .create-text-inputs {
+        width: 100%;
+    }
+
+    .create-text-input-textarea {
+        width: 100%;
+    }
+
+    .create-photo-inputs {
+        width: 100%;
+    }
+
+    .create-photo-input-textarea {
+        width: 100%;
+    }
 }

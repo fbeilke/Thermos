@@ -167,7 +167,7 @@ export default function EditPostModal ({ post }) {
                         : null }
                         {post.postType === 'video' && fileAccepted ?
                             <div className='edit-video-content'>
-                                <ReactPlayer url={content} controls={true} height={200} width={500} style={{backgroundColor: 'black'}} className='edit-video-preview' />
+                                <ReactPlayer url={content} controls={true} height={200} width='100%' style={{backgroundColor: 'black'}} className='edit-video-preview' />
                             </div>
                         : null }
                         {post.postType === 'audio' && fileAccepted ?

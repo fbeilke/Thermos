@@ -112,7 +112,7 @@ export default function CreateVideoPostModal() {
                     </div>
                 </div>
                 <div className='create-video-content-buttons'>
-                    {fileAccepted ? <ReactPlayer url={content} controls={true} height={200} width={500} style={{backgroundColor: 'black'}} className='post-video-preview' /> :
+                    {fileAccepted ? <ReactPlayer url={content} controls={true} height={200} width='100%' style={{backgroundColor: 'black'}} className='post-video-preview' /> :
                         <div className='choose-video-buttons'>
                             <button className='create-video-file-button' onClick={chooseUpload}>
                                 Upload a video
